@@ -16,7 +16,7 @@ public class MainWindowView extends JFrame {
 	private InsertScientistView insertScientistView;
 	private InsertProjectView insertProjectView;
 	private InsertRelationScientistProject insertRelationScientistProject;
-	
+
 	public MainWindowView() {
 		initialize();
 
@@ -46,14 +46,31 @@ public class MainWindowView extends JFrame {
 		this.insertProjectView = new InsertProjectView();
 		this.insertProjectView.setBounds(350, 10, 300, 150);
 		this.contentPane.add(this.insertProjectView);
-		
+
 		this.insertRelationScientistProject = new InsertRelationScientistProject();
 		this.insertRelationScientistProject.setBounds(700, 10, 300, 150);
 		this.contentPane.add(this.insertRelationScientistProject);
-		
+
 		// Add button
 		this.insertButton = new JButton("Insert data");
 		this.insertButton.setBounds(10, 300, 150, 30);
 		this.contentPane.add(insertButton);
 	}
+
+	public InsertScientistView getInsertScientistView() {
+		return insertScientistView;
+	}
+
+	public InsertProjectView getInsertProjectView() {
+		return insertProjectView;
+	}
+
+	public InsertRelationScientistProject getInsertRelationScientistProject() {
+		return insertRelationScientistProject;
+	}
+	
+	public JButton getInsertButton() {
+		return this.insertButton;
+	}
+	
 }

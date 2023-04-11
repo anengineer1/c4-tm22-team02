@@ -22,7 +22,7 @@ public class AssignedTo {
 		DNI = dNI;
 	}
 
-	public void setNomApels(String nomApels) {
-		this.idProject = nomApels;
+	public void setIdProject(String id_proj) {
+		this.idProject = id_proj;
 	}
 }

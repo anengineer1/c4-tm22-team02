@@ -37,5 +37,13 @@ public class InsertScientistView extends JPanel {
 		this.add(this.inputNomApels);
 
 	}
+	
+	public String getScientistDNI() {
+		return this.inputDNIScientist.getText();
+	}
+	
+	public String getNomApels() {
+		return this.inputNomApels.getText();
+	}
 
 }

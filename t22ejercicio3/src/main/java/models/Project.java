@@ -32,7 +32,13 @@ public class Project {
 		this.name = name;
 	}
 
-	public void setHours(int hours) {
-		this.hours = hours;
+	public int setHours(String hours) {
+		this.hours = -1;
+		try {
+		    this.hours =  Integer.parseInt(hours);
+		} catch (NumberFormatException e) {
+		    System.out.println("Error: could not parse string as int.");
+		}
+		return this.hours;
 	}
 }

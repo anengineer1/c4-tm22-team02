@@ -37,5 +37,13 @@ public class InsertRelationScientistProject extends JPanel {
 		this.add(this.inputProjectId);
 
 	}
+	
+	public String getScientistDNI() {
+		return this.inputDNIScientist.getText();
+	}
+	
+	public String getProjectId() {
+		return this.inputProjectId.getText();
+	}
 
 }

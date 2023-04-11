@@ -38,7 +38,7 @@ public class InsertProjectView extends JPanel {
 		this.inputProjectName = new JTextField();
 		this.inputProjectName.setBounds(160, 50, 120, 30);
 		this.add(this.inputProjectName);
-		
+
 		this.labelHours = new JLabel("Número de horas");
 		this.labelHours.setBounds(10, 90, 150, 30);
 		this.add(this.labelHours);
@@ -47,6 +47,18 @@ public class InsertProjectView extends JPanel {
 		this.inputHours.setBounds(160, 90, 120, 30);
 		this.add(this.inputHours);
 
+	}
+
+	public String getIdProject() {
+		return this.inputIdProject.getText();
+	}
+
+	public String getProjectName() {
+		return this.inputProjectName.getText();
+	}
+
+	public String getHours() {
+		return this.inputHours.getText();
 	}
 
 }
