@@ -14,7 +14,7 @@ public class AssignedTo {
 		return DNI;
 	}
 
-	public String getNomApels() {
+	public String getProjectName() {
 		return idProject;
 	}
 
