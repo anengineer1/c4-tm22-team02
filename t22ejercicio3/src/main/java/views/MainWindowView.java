@@ -6,16 +6,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 public class MainWindowView extends JFrame {
 
 	private JPanel contentPane;
+	private JTabbedPane tabbedPane;
 	private JButton insertButton;
 
 	private InsertScientistView insertScientistView;
 	private InsertProjectView insertProjectView;
 	private InsertRelationScientistProject insertRelationScientistProject;
+	private LookUpView lookUpView;
 
 	public MainWindowView() {
 		initialize();
@@ -37,7 +40,11 @@ public class MainWindowView extends JFrame {
 		this.contentPane = new JPanel();
 		this.contentPane.setLayout(null);
 		this.contentPane.setBounds(0, 0, this.getWidth(), this.getHeight());
-		this.setContentPane(this.contentPane);
+		// this.setContentPane(this.contentPane);
+		
+		this.tabbedPane = new JTabbedPane();
+		this.tabbedPane.addTab("Introducción de datos", contentPane);
+		this.setContentPane(this.tabbedPane);
 
 		this.insertScientistView = new InsertScientistView();
 		this.insertScientistView.setBounds(10, 10, 300, 150);
@@ -55,6 +62,11 @@ public class MainWindowView extends JFrame {
 		this.insertButton = new JButton("Insert data");
 		this.insertButton.setBounds(10, 300, 150, 30);
 		this.contentPane.add(insertButton);
+		
+		// Add look up view
+		this.lookUpView = new LookUpView();
+		this.lookUpView.setBounds(0, 0, this.getWidth(), this.getHeight());
+		this.tabbedPane.addTab("Visualización", this.lookUpView);
 	}
 
 	public InsertScientistView getInsertScientistView() {
