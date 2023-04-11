@@ -4,20 +4,20 @@ public class Video {
 	private int id;
 	private String title;
 	private String director;
-	private int cliId;
+	private Cliente cliente;
 
 	/**
 	 * @param id
 	 * @param title
 	 * @param director
-	 * @param cliId
+	 * @param cliente
 	 */
-	public Video(int id, String title, String director, int cliId) {
+	public Video(int id, String title, String director, Cliente cliente) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.director = director;
-		this.cliId = cliId;
+		this.cliente = cliente;
 	}
 
 	/**
@@ -70,17 +70,17 @@ public class Video {
 	}
 
 	/**
-	 * @return the cliId
+	 * @return the cliente
 	 */
-	public int getCliId() {
-		return cliId;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
 	/**
-	 * @param cliId the cliId to set
+	 * @param cliente the cliente to set
 	 */
-	public void setCliId(int cliId) {
-		this.cliId = cliId;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 }
