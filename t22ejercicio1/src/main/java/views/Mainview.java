@@ -23,6 +23,9 @@ import javax.swing.JTextField;
 import java.awt.Dimension;
 import javax.swing.JFormattedTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
 public class Mainview extends JFrame {
 
@@ -32,6 +35,7 @@ public class Mainview extends JFrame {
 	private JTextField tfCreate3;
 	private JTextField tfCreate2;
 	private JTextField tfCreate4;
+	private JTable table;
 
 
 	/**
@@ -230,6 +234,17 @@ public class Mainview extends JFrame {
 		JPanel panel_consultar_cliente = new JPanel();
 		panel_consultar_cliente.setBackground(new Color(0, 64, 128));
 		tabbedPane.addTab("Consulta Cliente", null, panel_consultar_cliente, "Consulta Cliente");
+		panel_consultar_cliente.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 896, 503);
+		panel_consultar_cliente.add(scrollPane);
+		
+		table = new JTable();
+		table.setColumnSelectionAllowed(true);
+		table.setCellSelectionEnabled(true);
+		table.setBounds(0, 0, 677, 243);
+		panel_consultar_cliente.add(table);
 		tabbedPane.setEnabledAt(1, true);
 		
 		JPanel panel_actualizar_cliente = new JPanel();
@@ -243,5 +258,4 @@ public class Mainview extends JFrame {
 		
 		
 	}
-
 }
