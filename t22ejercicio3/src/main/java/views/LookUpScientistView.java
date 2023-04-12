@@ -26,6 +26,7 @@ public class LookUpScientistView extends JPanel {
 
 		this.inputDNIScientist = new JTextField();
 		this.inputDNIScientist.setBounds(160, 10, 120, 30);
+		this.inputDNIScientist.setText("%");
 		this.add(this.inputDNIScientist);
 
 		this.labelNomApels = new JLabel("Nombre completo");
@@ -34,6 +35,7 @@ public class LookUpScientistView extends JPanel {
 
 		this.inputNomApels = new JTextField();
 		this.inputNomApels.setBounds(160, 50, 120, 30);
+		this.inputNomApels.setText("%");
 		this.add(this.inputNomApels);
 
 	}

@@ -3,6 +3,7 @@ package com.t22ejercicio3;
 import java.sql.Connection;
 
 import controller.InsertController;
+import controller.IookUpController;
 import views.MainWindowView;
 import models.Scientist;
 import models.Project;
@@ -23,5 +24,6 @@ public class App
 		AssignedTo assigned_to = new AssignedTo();
 		Connection con_mysql = MySQLConnectionHandler.initConnection("localhost", "10023", "remote", "cuser90r");
 		InsertController contrler = new InsertController(my_window, scientist, project, assigned_to, con_mysql);
+		IookUpController look_up = new IookUpController(my_window, scientist, project, assigned_to, con_mysql);
     }
 }

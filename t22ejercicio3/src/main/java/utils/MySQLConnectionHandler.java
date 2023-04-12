@@ -75,4 +75,48 @@ public class MySQLConnectionHandler {
 		String query = "'" + assigned_to.getDNI() + "'" + ", " + "'" + assigned_to.getProjectName() + "'";
 		insertData("TA22_ej3", "ASIGNADO_A", query, conexion);
 	}
+	
+	public static ResultSet lookUpData(Connection conexion, Scientist scientist, Project project, AssignedTo assigned_to) {
+
+		try {
+			String db = "TA22_ej3";
+			String Querydb = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+			String Query = "SELECT CIENTIFICOS.DNI, CIENTIFICOS.NOMAPELS, PROYECTO.ID, PROYECTO.NOMBRE, PROYECTO.HORAS ";
+			Query += "FROM CIENTIFICOS";
+			Query += "INNER JOIN ASIGNADO_A ON CIENTIFICOS.DNI = ASIGNADO_A.DNI ";
+			Query += "INNER JOIN PROYECTO ON ASIGNADO_A.ID = PROYECTO.ID ";
+			Query += "WHERE CIENTIFICOS.DNI LIKE " + "'" + scientist.getDNI() + "' ";
+			Query += "AND CIENTIFICOS.NOMAPELS LIKE " + "'" + scientist.getNomApels() + "' ";
+			Query += "AND PROYECTO.ID LIKE " + "'" + project.getIdProject() + "' ";
+			Query += "AND PROYECTO.NOMBRE LIKE " + "'" + project.getName() + "' ";
+			Query += "AND PROYECTO.HORAS LIKE " + "'" + project.getHours() + "';";
+			System.out.println(Query);
+			Statement st = conexion.createStatement();
+			st.executeUpdate(Query);
+			ResultSet rs = st.getResultSet();
+			System.out.println("Datos almacenados correctos");
+			return rs;
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+	
+//	
+//	public static void lookUpScientists(Connection conexion, Scientist scientist) {
+//		String query = "'" + scientist.getDNI() + "'" + ", " + "'" + scientist.getNomApels() + "'";
+//		insertData("TA22_ej3", "CIENTIFICOS", query, conexion);
+//	}
+//	
+//	public static void lookUpProject(Connection conexion, Project project) {
+//		String query = project.getIdProject() + ", " + "'" + project.getName() + "'" + ", " + project.getHours();
+//		insertData("TA22_ej3", "PROYECTO", query, conexion);
+//	}
+//	
+//	public static void lookUpAssignedTo(Connection conexion, AssignedTo assigned_to) {
+//		String query = "'" + assigned_to.getDNI() + "'" + ", " + "'" + assigned_to.getProjectName() + "'";
+//		insertData("TA22_ej3", "ASIGNADO_A", query, conexion);
+//	}
 }

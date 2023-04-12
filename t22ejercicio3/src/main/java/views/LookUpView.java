@@ -4,44 +4,75 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import net.miginfocom.swing.MigLayout;
 
 public class LookUpView extends JPanel {
-	private JButton insertButton;
+	private JButton lookButton;
 
 	private LookUpScientistView lookUpScientistView;
 	private LookUpProjectView lookUpProjectView;
 	private LookUpRelationScientistProject lookUpRelationScientistProject;
 
 	private JTextArea output;
-	
+
 	public LookUpView() {
 		initInterface();
 	}
 
 	private void initInterface() {
-		this.setLayout(null);
+		setLayout(new MigLayout("", "[300px][300px][300px]", "[150px][30px][248.00]"));
 
 		this.lookUpScientistView = new LookUpScientistView();
-		this.lookUpScientistView.setBounds(10, 10, 300, 150);
-		this.add(this.lookUpScientistView);
+		this.add(this.lookUpScientistView, "cell 0 0,grow");
 
 		this.lookUpProjectView = new LookUpProjectView();
-		this.lookUpProjectView.setBounds(350, 10, 300, 150);
-		this.add(this.lookUpProjectView);
+		this.add(this.lookUpProjectView, "cell 1 0,grow");
 
 		this.lookUpRelationScientistProject = new LookUpRelationScientistProject();
-		this.lookUpRelationScientistProject.setBounds(700, 10, 300, 150);
-		this.add(this.lookUpRelationScientistProject);
+		this.add(this.lookUpRelationScientistProject, "cell 2 0,grow");
 
 		// Add button
-		this.insertButton = new JButton("Consulta");
-		this.insertButton.setBounds(10, 300, 150, 30);
-		this.add(insertButton);
-		
+		this.lookButton = new JButton("Consulta");
+		this.add(lookButton, "cell 0 1,alignx left,growy");
+
 		// Add textPane
 		this.output = new JTextArea();
-		this.output.setBounds(10, 350, 1000, 250);
-		this.add(this.output);
+		this.add(this.output, "cell 0 2 3 1,grow");
 	}
 
+	public String getScientistDNI() {
+		return this.lookUpScientistView.getScientistDNI();
+	}
+
+	public String getScientistNomApels() {
+		return this.lookUpScientistView.getNomApels();
+	}
+
+	public String getIdProject() {
+		return this.lookUpProjectView.getIdProject();
+	}
+
+	public String getProjectName() {
+		return this.lookUpProjectView.getProjectName();
+	}
+
+	public String getProjectHours() {
+		return this.lookUpProjectView.getHours();
+	}
+
+	public String getAssignedToDNI() {
+		return this.lookUpRelationScientistProject.getScientistDNI();
+	}
+
+	public String getAssignedToProjectId() {
+		return this.lookUpRelationScientistProject.getProjectId();
+	}
+	
+	public void setResults(String results) {
+		this.output.setText(results);
+	}
+	
+	public JButton getButton() {
+		return this.lookButton;
+	}
 }

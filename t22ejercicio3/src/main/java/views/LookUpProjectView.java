@@ -29,7 +29,7 @@ public class LookUpProjectView extends JPanel {
 
 		this.inputIdProject = new JTextField();
 		this.inputIdProject.setBounds(160, 10, 120, 30);
-		this.inputIdProject.setText("*");
+		this.inputIdProject.setText("%");
 		this.add(this.inputIdProject);
 
 		this.labelProjectName = new JLabel("Nombre de proyecto");
@@ -38,7 +38,7 @@ public class LookUpProjectView extends JPanel {
 
 		this.inputProjectName = new JTextField();
 		this.inputProjectName.setBounds(160, 50, 120, 30);
-		this.inputProjectName.setText("*");
+		this.inputProjectName.setText("%");
 		this.add(this.inputProjectName);
 
 		this.labelHours = new JLabel("Número de horas");
@@ -47,6 +47,7 @@ public class LookUpProjectView extends JPanel {
 
 		this.inputHours = new JTextField();
 		this.inputHours.setBounds(160, 90, 120, 30);
+		this.inputHours.setText("%");
 		this.add(this.inputHours);
 
 	}
