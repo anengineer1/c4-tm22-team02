@@ -88,16 +88,13 @@ public class MainView extends JFrame {
 		/*
 		 * Create Client View
 		 */
-		JPanel panel_crear_cliente = new JPanel();
-		tabbedPane.addTab("Dar de alta Cliente", null, panel_crear_cliente, "Alta de Cliente");
-		//panel_crear_cliente.setLayout(null);
-
 		// Create view for CreateClient
-		cclient = new CreateClientView(panel_crear_cliente);
+		cclient = new CreateClientView();
 		cclient.setBackground(new Color(0, 64, 128));
 		cclient.setBounds(12, 12, 870, 500);
-		panel_crear_cliente.add(cclient);
-		cclient.setLayout(new GridLayout(1, 0, 0, 0));
+		//JPanel panel_crear_cliente = new JPanel();
+		tabbedPane.addTab("Dar de alta Cliente", null, cclient, "Alta de Cliente");
+		cclient.setLayout(null);
 		this.setVisible(true);
 
 		tabbedPane.setEnabledAt(0, true);
@@ -108,34 +105,23 @@ public class MainView extends JFrame {
 		 * Read Client View
 		 */
 
-		JPanel panel_consultar_cliente = new JPanel();
-		tabbedPane.addTab("Consulta Cliente", null, panel_consultar_cliente, "Consulta Cliente");
-		
-		
-		rclient = new ReadClientView(panel_consultar_cliente);
+		rclient = new ReadClientView();
 		rclient.setBackground(new Color(0, 64, 128));
 		rclient.setBounds(12, 12, 870, 561);
-		panel_consultar_cliente.add(rclient);
-		
-		
+		tabbedPane.addTab("Consulta Cliente", null, rclient, "Consulta Cliente");
+		rclient.setLayout(null);
 		tabbedPane.setEnabledAt(1, true);
-		panel_consultar_cliente.setLayout(null);
 		this.setVisible(true);
 
 		/*
 		 * Update Client View
 		 */
-		JPanel panel_actualizar_cliente = new JPanel();
-		tabbedPane.addTab("Actualizar Cliente", null, panel_actualizar_cliente, "Actualiza datos cliente");
-		
-		uclient = new UpdateClientView(panel_actualizar_cliente);
+		uclient = new UpdateClientView();
 		uclient.setBackground(new Color(0, 64, 128));
 		uclient.setBounds(12, 12, 870, 561);
-		
-		panel_actualizar_cliente.add(uclient);
-		
+		tabbedPane.addTab("Actualizar Cliente", null, uclient, "Actualiza datos cliente");
+
 		tabbedPane.setEnabledAt(2, true);
-		panel_actualizar_cliente.setLayout(null);
 		this.setVisible(true);
 		
 		/*

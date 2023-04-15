@@ -22,7 +22,6 @@ import javax.swing.SwingConstants;
  */
 public class ReadClientView extends JPanel {
 
-	private JPanel panel_consultar_cliente;
 	private JTextField tfRead1;
 	private JTextField tfRead2;
 	private JTable tableClients;
@@ -30,11 +29,11 @@ public class ReadClientView extends JPanel {
 	/**
 	 * 
 	 */
-	public ReadClientView(JPanel panel_consultar_cliente) {
-		this.panel_consultar_cliente = panel_consultar_cliente;
-		panel_consultar_cliente.setToolTipText("Consulta de cliente en base de datos");
-		panel_consultar_cliente.setBackground(new Color(0, 64, 128));
-		//panel_consultar_cliente.setLayout(null);
+	public ReadClientView() {
+	
+		this.setToolTipText("Consulta de cliente en base de datos");
+		this.setBackground(new Color(0, 64, 128));
+		//this.setLayout(null);
 
 		// Label Tab Read Client
 		JLabel lbl_consulta_cliente = new JLabel("Consulta cliente");
@@ -47,56 +46,56 @@ public class ReadClientView extends JPanel {
 		lbl_consulta_cliente.setToolTipText("Consulta cliente");
 		lbl_consulta_cliente.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 22));
 		lbl_consulta_cliente.setForeground(new Color(255, 255, 255));
-		panel_consultar_cliente.add(lbl_consulta_cliente);
+		this.add(lbl_consulta_cliente);
 
 		JLabel lblRead1 = new JLabel("Filtra por Nombre");
 		lblRead1.setBounds(303, 225, 103, 16);
 		lblRead1.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
 		lblRead1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblRead1.setForeground(new Color(255, 255, 255));
-		panel_consultar_cliente.add(lblRead1);
+		this.add(lblRead1);
 
 		tfRead1 = new JTextField();
 		tfRead1.setBounds(411, 223, 195, 20);
 		tfRead1.setToolTipText("Introduce Nombre");
 		tfRead1.setMaximumSize(new Dimension(250, 250));
 		tfRead1.setColumns(10);
-		panel_consultar_cliente.add(tfRead1);
+		this.add(tfRead1);
 
 		JButton btnNewButton = new JButton("Buscar ");
 		btnNewButton.setBounds(611, 223, 135, 49);
 		btnNewButton.setBorder(null);
 		btnNewButton.setIcon(new ImageIcon(MainView.class.getResource("/resources/assets/icons/lupa.png")));
 		btnNewButton.setActionCommand("");
-		panel_consultar_cliente.add(btnNewButton);
+		this.add(btnNewButton);
 
 		JLabel lblRead2 = new JLabel("Filtra por DNI");
 		lblRead2.setBounds(328, 252, 78, 16);
 		lblRead2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblRead2.setForeground(Color.WHITE);
 		lblRead2.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
-		panel_consultar_cliente.add(lblRead2);
+		this.add(lblRead2);
 
 		tfRead2 = new JTextField();
 		tfRead2.setBounds(411, 250, 195, 20);
 		tfRead2.setToolTipText("Introduce Nombre");
 		tfRead2.setMaximumSize(new Dimension(250, 250));
 		tfRead2.setColumns(10);
-		panel_consultar_cliente.add(tfRead2);
+		this.add(tfRead2);
 
 		tableClients = new JTable();
 		tableClients.setBounds(47, 307, 796, 247);
 		tableClients.setColumnSelectionAllowed(true);
 		tableClients.setCellSelectionEnabled(true);
-		panel_consultar_cliente.add(tableClients);
+		this.add(tableClients);
 
 	}
 
 	/**
-	 * @return the panel_consultar_cliente
+	 * @return the this
 	 */
-	public JPanel getPanel_consultar_cliente() {
-		return panel_consultar_cliente;
+	public JPanel getthis() {
+		return this;
 	}
 
 }
