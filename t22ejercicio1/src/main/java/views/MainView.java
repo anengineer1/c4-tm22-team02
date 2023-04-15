@@ -4,44 +4,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import java.awt.GridLayout;
-import java.awt.Insets;
-
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.JScrollPane;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
 import java.awt.ComponentOrientation;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
 import java.awt.Component;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import javax.swing.JButton;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.LineBorder;
 
 public class MainView extends JFrame {
 
 	private JPanel contentPane;
-	private JTable tableClients;
 	// Views to integrate
 	private CreateClientView cclient;
 	private ReadClientView rclient;
 	private UpdateClientView uclient;
-	private DeleteClientView dclient;
-	private JTextField tfRead1;
-	private JTextField tfRead2;
 
 	/**
 	 * Constructor Creates the main window structure for client menu
@@ -62,7 +41,7 @@ public class MainView extends JFrame {
 		 * 1. TITLE PANEL
 		 **/
 		JPanel paneltitle = new JPanel();
-		FlowLayout fl_paneltitle = (FlowLayout) paneltitle.getLayout();
+		paneltitle.getLayout();
 		paneltitle.setBounds(0, 10, 899, 138);
 
 		JLabel lbl00 = new JLabel("     GESTION DE CLIENTES");
@@ -92,7 +71,7 @@ public class MainView extends JFrame {
 		cclient = new CreateClientView();
 		cclient.setBackground(new Color(0, 64, 128));
 		cclient.setBounds(12, 12, 870, 500);
-		//JPanel panel_crear_cliente = new JPanel();
+		// JPanel panel_crear_cliente = new JPanel();
 		tabbedPane.addTab("Dar de alta Cliente", null, cclient, "Alta de Cliente");
 		cclient.setLayout(null);
 		this.setVisible(true);
@@ -123,15 +102,14 @@ public class MainView extends JFrame {
 
 		tabbedPane.setEnabledAt(2, true);
 		this.setVisible(true);
-		
+
 		/*
-		 * DELETE CLIENT VIEW
+		 * Delete Client View
 		 */
 		JPanel panel_borrar_cliente = new JPanel();
 		panel_borrar_cliente.setToolTipText("Borrar cliente en base de datos");
 		panel_borrar_cliente.setBackground(new Color(0, 64, 128));
 		tabbedPane.addTab("Borrar Cliente", null, panel_borrar_cliente, null);
-
 
 	}
 }

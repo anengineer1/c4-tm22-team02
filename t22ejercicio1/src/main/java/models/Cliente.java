@@ -9,21 +9,20 @@ package models;
  */
 public class Cliente {
 
-	/* ----- Atributos ----*/
+	/* ----- Atributos ---- */
 	private int id;
 	private String nombre;
 	private String apellido;
 	private String direccion;
 	private int dni;
 	private String fecha;
-	
+
 	/**
 	 * 
 	 */
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 
-		
 	}
 
 	/**
