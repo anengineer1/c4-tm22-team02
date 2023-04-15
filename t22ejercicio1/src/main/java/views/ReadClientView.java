@@ -34,7 +34,7 @@ public class ReadClientView extends JPanel {
 		this.panel_consultar_cliente = panel_consultar_cliente;
 		panel_consultar_cliente.setToolTipText("Consulta de cliente en base de datos");
 		panel_consultar_cliente.setBackground(new Color(0, 64, 128));
-		panel_consultar_cliente.setLayout(null);
+		//panel_consultar_cliente.setLayout(null);
 
 		// Label Tab Read Client
 		JLabel lbl_consulta_cliente = new JLabel("Consulta cliente");

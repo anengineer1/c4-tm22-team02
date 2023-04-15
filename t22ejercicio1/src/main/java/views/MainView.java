@@ -109,22 +109,35 @@ public class MainView extends JFrame {
 		 */
 
 		JPanel panel_consultar_cliente = new JPanel();
-		panel_consultar_cliente.setToolTipText("Consulta de cliente en base de datos");
-		panel_consultar_cliente.setBackground(new Color(0, 64, 128));
 		tabbedPane.addTab("Consulta Cliente", null, panel_consultar_cliente, "Consulta Cliente");
 		
+		
 		rclient = new ReadClientView(panel_consultar_cliente);
+		rclient.setBackground(new Color(0, 64, 128));
+		rclient.setBounds(12, 12, 870, 561);
+		panel_consultar_cliente.add(rclient);
+		
+		
 		tabbedPane.setEnabledAt(1, true);
 		panel_consultar_cliente.setLayout(null);
+		this.setVisible(true);
 
 		/*
-		 * UPDATE CLIENT VIEW
+		 * Update Client View
 		 */
 		JPanel panel_actualizar_cliente = new JPanel();
-		panel_actualizar_cliente.setToolTipText("Actualizar datos de cliente en base de datos");
-		panel_actualizar_cliente.setBackground(new Color(0, 64, 128));
-		tabbedPane.addTab("Actualizar Cliente", null, panel_actualizar_cliente, null);
-
+		tabbedPane.addTab("Actualizar Cliente", null, panel_actualizar_cliente, "Actualiza datos cliente");
+		
+		uclient = new UpdateClientView(panel_actualizar_cliente);
+		uclient.setBackground(new Color(0, 64, 128));
+		uclient.setBounds(12, 12, 870, 561);
+		
+		panel_actualizar_cliente.add(uclient);
+		
+		tabbedPane.setEnabledAt(2, true);
+		panel_actualizar_cliente.setLayout(null);
+		this.setVisible(true);
+		
 		/*
 		 * DELETE CLIENT VIEW
 		 */
@@ -133,11 +146,6 @@ public class MainView extends JFrame {
 		panel_borrar_cliente.setBackground(new Color(0, 64, 128));
 		tabbedPane.addTab("Borrar Cliente", null, panel_borrar_cliente, null);
 
-		// Create views
-		// cclient= new CreateClientView(panel_crear_cliente);
-		// rclient= new ReadClientView();
-		// uclient= new UpdateClientView();
-		// dclient= new DeleteClientView();
 
 	}
 }
