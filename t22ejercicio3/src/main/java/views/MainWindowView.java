@@ -20,6 +20,7 @@ public class MainWindowView extends JFrame {
 	private InsertProjectView insertProjectView;
 	private InsertRelationScientistProject insertRelationScientistProject;
 	private LookUpView lookUpView;
+	private DeleteView deleteView;
 
 	public MainWindowView() {
 		initialize();
@@ -64,6 +65,11 @@ public class MainWindowView extends JFrame {
 		this.lookUpView = new LookUpView();
 		this.lookUpView.setBounds(0, 0, this.getWidth(), this.getHeight());
 		this.tabbedPane.addTab("Visualización", this.lookUpView);
+		
+		// Add delete view
+		this.deleteView = new DeleteView();
+		this.deleteView.setBounds(0, 0, this.getWidth(), this.getHeight());
+		this.tabbedPane.addTab("Borrado", this.deleteView);
 	}
 
 	public InsertScientistView getInsertScientistView() {
@@ -77,28 +83,60 @@ public class MainWindowView extends JFrame {
 	public InsertRelationScientistProject getInsertRelationScientistProject() {
 		return insertRelationScientistProject;
 	}
+	
+	public void setRow(String DNI, String nom_apels, String id_proj, String nombre_proy, String horas_proy) {
+		this.lookUpView.setRow(DNI, nom_apels, id_proj, nombre_proy, horas_proy);
+	}
+	
+	public void clearRows() {
+		this.lookUpView.clearRows();
+	}
 
 	public JButton getInsertButton() {
 		return this.insertButton;
 	}
 	
-	public InsertScientistView getLookUpScientistView() {
-		return insertScientistView;
+	public String getLookUpScientistDNI() {
+		return this.lookUpView.getScientistDNI();
 	}
 
-	public InsertProjectView getLookUpProjectView() {
-		return insertProjectView;
+	public String getLookUpScientistNomApels() {
+		return this.lookUpView.getScientistNomApels();
 	}
 
-	public InsertRelationScientistProject getLookUpScientistProject() {
-		return insertRelationScientistProject;
+	public String getLookUpProjectId() {
+		return this.lookUpView.getIdProject();
+	}
+	
+	public String getLookUpProjectName() {
+		return this.lookUpView.getProjectName();
+	}
+	
+	public String getLookUpProjectHours() {
+		return this.lookUpView.getProjectHours();
 	}
 
 	public JButton getLookUpButton() {
-		return this.getLookUpView().getButton();
+		return this.lookUpView.getButton();
 	}
 	
-	public LookUpView getLookUpView() {
-		return this.lookUpView;
+	public String getDeleteScientistDNI() {
+		return this.deleteView.getScientistDNI();
+	}
+
+	public String getDeleteProjectId() {
+		return this.deleteView.getIdProject();
+	}
+	
+	public String getDeleteAssginedToDNI() {
+		return this.deleteView.getAssignedToDNI();
+	}
+
+	public String getDeleteAssignedToId() {
+		return this.deleteView.getAssignedToProjectId();
+	}
+	
+	public JButton getDeleteButton() {
+		return this.deleteView.getButton();
 	}
 }

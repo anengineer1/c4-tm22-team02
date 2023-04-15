@@ -33,8 +33,8 @@ public class Project {
 		this.name = name;
 	}
 	
-	public String setHours(String hours) {
-		return this.hours;
+	public void setHours(String hours) {
+		this.hours = hours;
 	}
 
 //	public int setHours(String hours) {
