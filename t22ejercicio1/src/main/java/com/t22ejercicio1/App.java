@@ -2,7 +2,7 @@ package com.t22ejercicio1;
 
 import java.awt.EventQueue;
 
-import views.Mainview;
+import views.MainView;
 
 /**
  * Hello world!
@@ -17,7 +17,7 @@ public class App
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Mainview frame = new Mainview();
+					MainView frame = new MainView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
