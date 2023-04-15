@@ -154,6 +154,74 @@ public class MySQLConnectionHandler {
 			System.out.println(ex.getMessage());
 		}
 	}
+	
+	public static void updateScientist(Connection conexion, Scientist scientist) {
+
+		try {
+			String db = "TA22_ej3";
+			String Querydb = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+			String Query = "UPDATE CIENTIFICOS SET ";
+			if ((scientist.getDNI() != "") && (scientist.getNomApels() != "")) {
+				Query += "NomApels = " +  "'" + scientist.getNomApels() + "' ";
+				Query += "WHERE " + "DNI = " + scientist.getDNI();
+			}
+			System.out.println(Query);
+			Statement st = conexion.createStatement();
+			st.executeUpdate(Query);
+			System.out.println("Datos actualizados correctamente");
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	public static void updateProject(Connection conexion, Project project) {
+
+		try {
+			String db = "TA22_ej3";
+			String Querydb = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+			String Query = "UPDATE PROYECTO SET ";
+			if (project.getName() != "") {
+				Query += "Nombre = " +  "'" + project.getName() + "' ";
+			} else if ((project.getName() != "") && (project.getHours() != "")) {
+				Query += "Nombre = " +  "'" + project.getName() + "', ";
+				Query += "Horas = " +  "'" + project.getHours() + "' ";
+			} else if (project.getHours() != "") {
+				Query += "DNI = " +  "'" + project.getHours() + "', ";
+			}
+			Query += "WHERE " + "Id = " + project.getIdProject();
+			System.out.println(Query);
+			Statement st = conexion.createStatement();
+			st.executeUpdate(Query);
+			System.out.println("Datos borrados correctamente");
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	public static void updateAssignedTo(Connection conexion, AssignedTo assigned_to) {
+
+		try {
+			String db = "TA22_ej3";
+			String Querydb = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+			String Query = "UPDATE CIENTIFICOS SET ";
+			if ((assigned_to.getDNI() != "") && (assigned_to.getProjectId() != "")) {
+				Query += "Id = " +  "'" + assigned_to.getProjectId() + "' ";
+				Query += "WHERE " + "DNI = " + assigned_to.getDNI();
+			}
+			System.out.println(Query);
+			Statement st = conexion.createStatement();
+			st.executeUpdate(Query);
+			System.out.println("Datos borrados correctamente");
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+	}
 
 //	
 //	public static void lookUpScientists(Connection conexion, Scientist scientist) {

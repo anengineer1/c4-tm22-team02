@@ -21,6 +21,7 @@ public class MainWindowView extends JFrame {
 	private InsertRelationScientistProject insertRelationScientistProject;
 	private LookUpView lookUpView;
 	private DeleteView deleteView;
+	private UpdateView updateView;
 
 	public MainWindowView() {
 		initialize();
@@ -70,6 +71,11 @@ public class MainWindowView extends JFrame {
 		this.deleteView = new DeleteView();
 		this.deleteView.setBounds(0, 0, this.getWidth(), this.getHeight());
 		this.tabbedPane.addTab("Borrado", this.deleteView);
+		
+		// Add update view
+		this.updateView = new UpdateView();
+		this.updateView.setBounds(0, 0, this.getWidth(), this.getHeight());
+		this.tabbedPane.addTab("Update", this.updateView);
 	}
 
 	public InsertScientistView getInsertScientistView() {
@@ -138,5 +144,25 @@ public class MainWindowView extends JFrame {
 	
 	public JButton getDeleteButton() {
 		return this.deleteView.getButton();
+	}
+	
+	public String getUpdateScientistDNI() {
+		return this.updateView.getScientistDNI();
+	}
+
+	public String getUpdateProjectId() {
+		return this.updateView.getIdProject();
+	}
+	
+	public String getUpdateAssginedToDNI() {
+		return this.updateView.getAssignedToDNI();
+	}
+
+	public String getUpdateAssignedToId() {
+		return this.updateView.getAssignedToProjectId();
+	}
+	
+	public JButton getUpdateButton() {
+		return this.updateView.getButton();
 	}
 }

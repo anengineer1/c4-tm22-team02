@@ -17,8 +17,6 @@ public class DeleteView extends JPanel {
 	private DeleteProjectView deleteProjectView;
 	private DeleteRelationScientistProject deleteRelationScientistProject;
 
-	private DefaultTableModel model;
-
 	public DeleteView() {
 		initInterface();
 	}
@@ -67,14 +65,6 @@ public class DeleteView extends JPanel {
 
 	public String getAssignedToProjectId() {
 		return this.deleteRelationScientistProject.getProjectId();
-	}
-
-	public void setRow(String DNI, String nom_apels, String id_proj, String nombre_proy, String horas_proy) {
-		this.model.addRow(new Object[] {DNI, nom_apels, id_proj, nombre_proy, horas_proy});
-	}
-	
-	public void clearRows() {
-		this.model.setRowCount(0);
 	}
 
 	public JButton getButton() {
