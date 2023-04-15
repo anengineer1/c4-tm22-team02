@@ -3,6 +3,11 @@ package views;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
+import javax.swing.text.DocumentFilter.FilterBypass;
 
 public class InsertProjectView extends JPanel {
 
@@ -28,6 +33,19 @@ public class InsertProjectView extends JPanel {
 		this.add(this.labelIdProject);
 
 		this.inputIdProject = new JTextField();
+		AbstractDocument doc = (AbstractDocument) this.inputIdProject.getDocument();
+		doc.setDocumentFilter(new DocumentFilter() {
+		    @Override
+		    public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
+		        String currentText = fb.getDocument().getText(0, fb.getDocument().getLength());
+		        int currentLength = currentText.length() - length + text.length();
+		        if (currentLength <= 4) {
+		            super.replace(fb, offset, length, text, attrs);
+		        } else {
+		            // Do nothing
+		        }
+		    }
+		});
 		this.inputIdProject.setBounds(160, 10, 120, 30);
 		this.add(this.inputIdProject);
 
@@ -45,6 +63,19 @@ public class InsertProjectView extends JPanel {
 
 		this.inputHours = new JTextField();
 		this.inputHours.setBounds(160, 90, 120, 30);
+		AbstractDocument doc_int = (AbstractDocument) inputHours.getDocument();
+		doc_int.setDocumentFilter(new DocumentFilter() {
+		    @Override
+		    public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
+		        String currentText = fb.getDocument().getText(0, fb.getDocument().getLength());
+		        String newText = currentText.substring(0, offset) + text + currentText.substring(offset + length);
+		        if (newText.matches("-?\\d*")) {
+		            super.replace(fb, offset, length, text, attrs);
+		        } else {
+		            // Do nothing
+		        }
+		    }
+		});
 		this.add(this.inputHours);
 
 	}
