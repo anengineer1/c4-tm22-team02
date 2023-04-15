@@ -165,4 +165,17 @@ public class MainWindowView extends JFrame {
 	public JButton getUpdateButton() {
 		return this.updateView.getButton();
 	}
+
+	public String getUpdateNomApels() {
+		return this.updateView.getScientistNomApels();
+	}
+	
+	public String getUpdateProjectName() {
+		return this.updateView.getProjectName();
+	}
+	
+	public String getUpdateProjectHours() {
+		return this.updateView.getProjectHours();
+	}
+
 }

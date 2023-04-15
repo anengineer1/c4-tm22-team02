@@ -119,7 +119,7 @@ public class MySQLConnectionHandler {
 			System.out.println(ex.getMessage());
 		}
 	}
-	
+
 	public static void deleteProject(Connection conexion, Project project) {
 
 		try {
@@ -136,7 +136,7 @@ public class MySQLConnectionHandler {
 			System.out.println(ex.getMessage());
 		}
 	}
-	
+
 	public static void deleteAssignedTo(Connection conexion, AssignedTo assigned_to) {
 
 		try {
@@ -144,8 +144,8 @@ public class MySQLConnectionHandler {
 			String Querydb = "USE " + db + ";";
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(Querydb);
-			String Query = "DELETE FROM ASIGNADO_A " + "WHERE DNI = " + "'" + assigned_to.getDNI() + "' " +
-					"AND Id = " + "'" + assigned_to.getProjectId() + "' " + "LIMIT 1;";
+			String Query = "DELETE FROM ASIGNADO_A " + "WHERE DNI = " + "'" + assigned_to.getDNI() + "' " + "AND Id = "
+					+ "'" + assigned_to.getProjectId() + "' " + "LIMIT 1;";
 			System.out.println(Query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);
@@ -154,7 +154,7 @@ public class MySQLConnectionHandler {
 			System.out.println(ex.getMessage());
 		}
 	}
-	
+
 	public static void updateScientist(Connection conexion, Scientist scientist) {
 
 		try {
@@ -163,10 +163,8 @@ public class MySQLConnectionHandler {
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 			String Query = "UPDATE CIENTIFICOS SET ";
-			if ((scientist.getDNI() != "") && (scientist.getNomApels() != "")) {
-				Query += "NomApels = " +  "'" + scientist.getNomApels() + "' ";
-				Query += "WHERE " + "DNI = " + scientist.getDNI();
-			}
+			Query += "NomApels = " + "'" + scientist.getNomApels() + "' ";
+			Query += "WHERE " + "DNI = " + scientist.getDNI();
 			System.out.println(Query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);
@@ -175,7 +173,7 @@ public class MySQLConnectionHandler {
 			System.out.println(ex.getMessage());
 		}
 	}
-	
+
 	public static void updateProject(Connection conexion, Project project) {
 
 		try {
@@ -184,15 +182,15 @@ public class MySQLConnectionHandler {
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 			String Query = "UPDATE PROYECTO SET ";
-			if (project.getName() != "") {
-				Query += "Nombre = " +  "'" + project.getName() + "' ";
-			} else if ((project.getName() != "") && (project.getHours() != "")) {
-				Query += "Nombre = " +  "'" + project.getName() + "', ";
-				Query += "Horas = " +  "'" + project.getHours() + "' ";
+			if (!project.getName().isEmpty()) {
+				Query += "Nombre = " + "'" + project.getName() + "' ";
+			} else if (!project.getName().isEmpty() && !project.getHours().isEmpty()) {
+				Query += "Nombre = " + "'" + project.getName() + "', ";
+				Query += "Horas = " + project.getHours();
 			} else if (project.getHours() != "") {
-				Query += "DNI = " +  "'" + project.getHours() + "', ";
+				Query += "Horas = " + "'" + project.getHours() + "' ";
 			}
-			Query += "WHERE " + "Id = " + project.getIdProject();
+			Query += "WHERE " + "Id = " + project.getIdProject() + ";";
 			System.out.println(Query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);
@@ -201,7 +199,7 @@ public class MySQLConnectionHandler {
 			System.out.println(ex.getMessage());
 		}
 	}
-	
+
 	public static void updateAssignedTo(Connection conexion, AssignedTo assigned_to) {
 
 		try {
@@ -210,10 +208,10 @@ public class MySQLConnectionHandler {
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 			String Query = "UPDATE CIENTIFICOS SET ";
-			if ((assigned_to.getDNI() != "") && (assigned_to.getProjectId() != "")) {
-				Query += "Id = " +  "'" + assigned_to.getProjectId() + "' ";
-				Query += "WHERE " + "DNI = " + assigned_to.getDNI();
-			}
+
+			Query += "Id = " + "'" + assigned_to.getProjectId() + "' ";
+			Query += "WHERE " + "DNI = " + assigned_to.getDNI() + ";";
+
 			System.out.println(Query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);

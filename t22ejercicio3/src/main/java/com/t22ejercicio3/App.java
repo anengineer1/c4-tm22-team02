@@ -4,6 +4,7 @@ import java.sql.Connection;
 
 import controller.InsertController;
 import controller.LookUpController;
+import controller.UpdateController;
 import controller.DeleteController;
 import views.MainWindowView;
 import models.Scientist;
@@ -27,5 +28,6 @@ public class App
 		InsertController contrler = new InsertController(my_window, scientist, project, assigned_to, con_mysql);
 		LookUpController look_up = new LookUpController(my_window, scientist, project, assigned_to, con_mysql);
 		DeleteController delete = new DeleteController(my_window, scientist, project, assigned_to, con_mysql);
+		UpdateController update = new UpdateController(my_window, scientist, project, assigned_to, con_mysql);
     }
 }
