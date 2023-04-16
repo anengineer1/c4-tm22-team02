@@ -15,6 +15,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.ImageIcon;
 
 public class CreateClientView extends JPanel {
@@ -23,7 +25,7 @@ public class CreateClientView extends JPanel {
 	public JTextField tfCreate3;
 	public JTextField tfCreate2;
 	public JTextField tfCreate4;
-	public JCalendar jcFechaAlta;
+	public JDateChooser jcFechaAlta;
 	public JButton btnCreateClient;
 	
 	/**
@@ -123,8 +125,8 @@ public class CreateClientView extends JPanel {
 		lblCreate5.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
 		this.add(lblCreate5);
 		
-		jcFechaAlta = new JCalendar();
-		jcFechaAlta.setBounds(344, 227, 212, 159);
+		jcFechaAlta = new JDateChooser();
+		jcFechaAlta.setBounds(344, 227, 212, 26);
 		this.add(jcFechaAlta);
 		
 		btnCreateClient = new JButton("Finalizar Alta de Cliente");

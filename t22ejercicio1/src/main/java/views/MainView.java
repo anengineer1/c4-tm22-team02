@@ -21,6 +21,7 @@ public class MainView extends JFrame {
 	private CreateClientView cclient;
 	private ReadClientView rclient;
 	private UpdateClientView uclient;
+	public JTabbedPane tabbedPane;
 
 	/**
 	 * Constructor Creates the main window structure for client menu
@@ -53,7 +54,7 @@ public class MainView extends JFrame {
 		/*
 		 * 2. TABBED PANEL
 		 */
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		tabbedPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		tabbedPane.setBounds(0, 153, 899, 601);
@@ -64,51 +65,31 @@ public class MainView extends JFrame {
 		contentPane.add(tabbedPane);
 
 		/*
-		 * Create Client View
-		 */
-		// Create view for CreateClient
-		cclient = new CreateClientView();
-		cclient.setBackground(new Color(0, 64, 128));
-		cclient.setBounds(12, 12, 870, 500);
-		// JPanel panel_crear_cliente = new JPanel();
-		tabbedPane.addTab("Dar de alta Cliente", null, cclient, "Alta de Cliente");
-		cclient.setLayout(null);
-		this.setVisible(true);
-
-		tabbedPane.setEnabledAt(0, true);
-		tabbedPane.setBackgroundAt(0, new Color(255, 255, 255));
-		// panel_crear_cliente.setLayout(null);
-
-		/*
 		 * Read Client View
 		 */
-
-		rclient = new ReadClientView();
-		rclient.setBackground(new Color(0, 64, 128));
-		rclient.setBounds(12, 12, 870, 561);
-		tabbedPane.addTab("Consulta Cliente", null, rclient, "Consulta Cliente");
-		rclient.setLayout(null);
-		tabbedPane.setEnabledAt(1, true);
-		this.setVisible(true);
-
 		/*
+		 * rclient = new ReadClientView(); rclient.setBackground(new Color(0, 64, 128));
+		 * rclient.setBounds(12, 12, 870, 561); tabbedPane.addTab("Consulta Cliente",
+		 * null, rclient, "Consulta Cliente"); rclient.setLayout(null);
+		 * tabbedPane.setEnabledAt(1, true); this.setVisible(true);
+		 * 
+		 * 
 		 * Update Client View
-		 */
-		uclient = new UpdateClientView();
-		uclient.setBackground(new Color(0, 64, 128));
-		uclient.setBounds(12, 12, 870, 561);
-		tabbedPane.addTab("Actualizar Cliente", null, uclient, "Actualiza datos cliente");
-
-		tabbedPane.setEnabledAt(2, true);
-		this.setVisible(true);
-
-		/*
+		 * 
+		 * uclient = new UpdateClientView(); uclient.setBackground(new Color(0, 64,
+		 * 128)); uclient.setBounds(12, 12, 870, 561);
+		 * tabbedPane.addTab("Actualizar Cliente", null, uclient,
+		 * "Actualiza datos cliente");
+		 * 
+		 * tabbedPane.setEnabledAt(2, true); this.setVisible(true);
+		 * 
+		 * 
 		 * Delete Client View
+		 * 
+		 * JPanel panel_borrar_cliente = new JPanel();
+		 * panel_borrar_cliente.setToolTipText("Borrar cliente en base de datos");
+		 * panel_borrar_cliente.setBackground(new Color(0, 64, 128));
+		 * tabbedPane.addTab("Borrar Cliente", null, panel_borrar_cliente, null);
 		 */
-		JPanel panel_borrar_cliente = new JPanel();
-		panel_borrar_cliente.setToolTipText("Borrar cliente en base de datos");
-		panel_borrar_cliente.setBackground(new Color(0, 64, 128));
-		tabbedPane.addTab("Borrar Cliente", null, panel_borrar_cliente, null);
-
 	}
 }

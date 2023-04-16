@@ -2,6 +2,7 @@ package com.t22ejercicio1;
 
 import java.awt.EventQueue;
 
+import controllers.MainController;
 import views.MainView;
 
 /**
@@ -19,6 +20,8 @@ public class App
 				try {
 					MainView frame = new MainView();
 					frame.setVisible(true);
+					MainController mcontrol = new MainController(frame);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
