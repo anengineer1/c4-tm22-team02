@@ -102,6 +102,73 @@ public class MySQLConnectionHandler {
 			return null;
 		}
 	}
+	
+	public static ResultSet lookUpScientistData(Connection conexion, Scientist scientist) {
+
+		try {
+			String db = "TA22_ej3";
+			String Querydb = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+			String Query = "SELECT * ";
+			Query += "FROM CIENTIFICOS ";
+			Query += "WHERE DNI LIKE " + "'" + scientist.getDNI() + "' ";
+			Query += "AND NOMAPELS LIKE " + "'" + scientist.getNomApels() + "';";
+			System.out.println(Query);
+			Statement st = conexion.createStatement();
+			ResultSet rs = st.executeQuery(Query);
+			System.out.println("Datos mostrados");
+			return rs;
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+	
+	public static ResultSet lookUpProjectData(Connection conexion, Project project) {
+
+		try {
+			String db = "TA22_ej3";
+			String Querydb = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+			String Query = "SELECT * ";
+			Query += "FROM PROYECTO ";
+			Query += "WHERE Id LIKE " + "'" + project.getIdProject() + "' ";
+			Query += "AND Nombre LIKE " + "'" + project.getName() + "' ";
+			Query += "AND Horas LIKE " + "'" + project.getHours() + "';";
+			System.out.println(Query);
+			Statement st = conexion.createStatement();
+			ResultSet rs = st.executeQuery(Query);
+			System.out.println("Datos mostrados");
+			return rs;
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+	
+	public static ResultSet lookUpAssignedToData(Connection conexion, AssignedTo assigned_to) {
+
+		try {
+			String db = "TA22_ej3";
+			String Querydb = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+			String Query = "SELECT * ";
+			Query += "FROM ASIGNADO_A ";
+			Query += "WHERE DNI LIKE " + "'" + assigned_to.getDNI() + "' ";
+			Query += "AND ID LIKE " + "'" + assigned_to.getProjectId() + "';";
+			System.out.println(Query);
+			Statement st = conexion.createStatement();
+			ResultSet rs = st.executeQuery(Query);
+			System.out.println("Datos mostrados");
+			return rs;
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
 
 	public static void deleteScientist(Connection conexion, Scientist scientist) {
 
@@ -145,7 +212,7 @@ public class MySQLConnectionHandler {
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(Querydb);
 			String Query = "DELETE FROM ASIGNADO_A " + "WHERE DNI = " + "'" + assigned_to.getDNI() + "' " + "AND Id = "
-					+ "'" + assigned_to.getProjectId() + "' " + "LIMIT 1;";
+					+ "'" + assigned_to.getProjectId() + "' " + ";";
 			System.out.println(Query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);
@@ -212,6 +279,28 @@ public class MySQLConnectionHandler {
 			Query += "Id = " + "'" + assigned_to.getProjectId() + "' ";
 			Query += "WHERE " + "DNI = " + assigned_to.getDNI() + ";";
 
+			System.out.println(Query);
+			Statement st = conexion.createStatement();
+			st.executeUpdate(Query);
+			System.out.println("Datos borrados correctamente");
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+	}
+
+	public static void deleteEntry(Connection conexion, AssignedTo assigned_to) {
+
+		try {
+			String db = "TA22_ej3";
+			String Querydb = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(Querydb);
+			String Query = "DELETE FROM ASIGNADO_A WHERE DNI LIKE " + "'" + assigned_to.getDNI() + "' " + "AND Id LIKE " + "'"
+					+ assigned_to.getProjectId() + "'; " + "DELETE FROM CIENTIFICOS WHERE DNI LIKE " + "'"
+					+ assigned_to.getDNI() + "' " + "AND NOT EXISTS (SELECT * FROM ASIGNADO_A WHERE DNI LIKE " + "'"
+					+ assigned_to.getDNI() + "'); " + "DELETE FROM PROYECTO WHERE Id LIKE " + "'"
+					+ assigned_to.getProjectId() + "' " + "AND NOT EXISTS (SELECT * FROM ASIGNADO_A WHERE Id LIKE " + "'"
+					+ assigned_to.getProjectId() + "');";
 			System.out.println(Query);
 			Statement st = conexion.createStatement();
 			st.executeUpdate(Query);

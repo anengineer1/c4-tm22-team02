@@ -52,12 +52,21 @@ public class InsertController implements ActionListener {
 	
 	
 	private void insertToDb() {
+		if (!this.scientist.getDNI().isEmpty()) {
+			MySQLConnectionHandler.insertScientists(this.connWithMySQL, this.scientist);
+		}
 		
-		MySQLConnectionHandler.insertScientists(this.connWithMySQL, this.scientist);
-		MySQLConnectionHandler.insertProject(this.connWithMySQL, this.project);
-		MySQLConnectionHandler.insertAssignedTo(this.connWithMySQL, this.assignedTo);
+		if (!this.project.getIdProject().isEmpty()) {
+			MySQLConnectionHandler.insertProject(this.connWithMySQL, this.project);
+		}
+		
+		if (this.assignedTo.getDNI().isEmpty() || this.assignedTo.getProjectId().isEmpty()) {
+			
+		} else  {
+			MySQLConnectionHandler.insertProject(this.connWithMySQL, this.project);
+			MySQLConnectionHandler.insertAssignedTo(this.connWithMySQL, this.assignedTo);
+		}
 		
 	}
-
 
 }

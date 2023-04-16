@@ -12,7 +12,7 @@ import models.Scientist;
 import utils.MySQLConnectionHandler;
 import views.MainWindowView;
 
-public class LookUpController implements ActionListener {
+public class LookUpControllerProject implements ActionListener {
 
 	private MainWindowView mainWindowView;
 	private Scientist scientist;
@@ -20,7 +20,7 @@ public class LookUpController implements ActionListener {
 	private AssignedTo assignedTo;
 	private Connection connWithMySQL;
 
-	public LookUpController(MainWindowView main_window, Scientist scientist_model, Project project_model,
+	public LookUpControllerProject(MainWindowView main_window, Scientist scientist_model, Project project_model,
 			AssignedTo assigned_to_model,Connection conn_with_MySql) {
 		this.mainWindowView = main_window;
 		this.scientist = scientist_model;
@@ -28,7 +28,7 @@ public class LookUpController implements ActionListener {
 		this.assignedTo = assigned_to_model;
 		this.connWithMySQL = conn_with_MySql;
 		
-		this.mainWindowView.getLookUpButton().addActionListener(this);
+		this.mainWindowView.getLookUpProjectButton().addActionListener(this);
 	}
 
 	@Override
@@ -58,15 +58,13 @@ public class LookUpController implements ActionListener {
 	
 	private void lookIntoDb() { // TODO: Make it work look up
 
-		ResultSet rs = MySQLConnectionHandler.lookUpData(this.connWithMySQL, this.scientist, this.project, this.assignedTo);
+		ResultSet rs = MySQLConnectionHandler.lookUpProjectData(this.connWithMySQL, this.project);
 		try {
 			while (rs.next()) {
-				String dni = rs.getString("DNI");
-				String nomApels = rs.getString("NomApels");
 				String id = rs.getString("Id");
 				String nombre = rs.getString("Nombre");
 				int horas = rs.getInt("Horas");
-				this.mainWindowView.setRow(dni, nomApels, id, nombre, Integer.toString(horas));
+				this.mainWindowView.setProjectRow(id, nombre, Integer.toString(horas));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
