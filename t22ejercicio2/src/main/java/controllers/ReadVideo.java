@@ -1,4 +1,4 @@
-package controller;
+package controllers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
-import utils.Database;
+import database.Database;
 
 public class ReadVideo {
 	/*

@@ -1,22 +1,40 @@
+/**
+ * 
+ */
 package models;
 
+import java.sql.Connection;
+
+import database.Database;
+
+/**
+ * @author elena-01
+ *
+ */
 public class Cliente {
+
+	/* ----- Atributos ---- */
 	private int id;
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	private int dni;
+	private String dni;
 	private String fecha;
-	
+	// Database
+	private Connection conexion;
+	private Database db;
+
 	/**
 	 * 
 	 */
-	public Cliente() {
-		
+	public Cliente(Database db, Connection conexion) {
+		// TODO Auto-generated constructor stub
+		this.db = db;
+		this.conexion = conexion;
 	}
 
 	/**
-	 * @return id
+	 * @return the id
 	 */
 	public int getId() {
 		return id;
@@ -30,7 +48,7 @@ public class Cliente {
 	}
 
 	/**
-	 * @return nombre
+	 * @return the nombre
 	 */
 	public String getNombre() {
 		return nombre;
@@ -44,7 +62,7 @@ public class Cliente {
 	}
 
 	/**
-	 * @return apellido
+	 * @return the apellido
 	 */
 	public String getApellido() {
 		return apellido;
@@ -58,7 +76,7 @@ public class Cliente {
 	}
 
 	/**
-	 * @return direccion
+	 * @return the direccion
 	 */
 	public String getDireccion() {
 		return direccion;
@@ -72,21 +90,21 @@ public class Cliente {
 	}
 
 	/**
-	 * @return dni
+	 * @return the dni
 	 */
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
 	/**
 	 * @param dni the dni to set
 	 */
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
 	/**
-	 * @return fecha
+	 * @return the fecha
 	 */
 	public String getFecha() {
 		return fecha;
@@ -98,4 +116,15 @@ public class Cliente {
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
+
+	public void insertClientData() {
+
+		// String with client attributes
+		String newClient = (null+","+nombre + "," + apellido + "," + Integer.parseInt(dni) + "," + fecha);
+		System.out.println(newClient);
+
+		// Insert data new client in db
+		db.insertData("clientes", "cliente", newClient, conexion);
+	}
+
 }
