@@ -12,6 +12,9 @@ import models.Scientist;
 import utils.MySQLConnectionHandler;
 import views.MainWindowView;
 
+/*
+ * Controller for reading the join of the tables
+ */
 public class LookUpControllerJoin implements ActionListener {
 
 	private MainWindowView mainWindowView;

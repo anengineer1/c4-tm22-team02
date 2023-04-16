@@ -12,6 +12,9 @@ import models.Scientist;
 import utils.MySQLConnectionHandler;
 import views.MainWindowView;
 
+/*
+ * Controller for updating the info
+ */
 public class UpdateController implements ActionListener {
 
 	private MainWindowView mainWindowView;
@@ -42,6 +45,9 @@ public class UpdateController implements ActionListener {
 
 	}
 
+	/*
+	 * Get info from GUI
+	 */
 	private void infoFromViewToModels() {
 		this.scientist.setDNI(this.mainWindowView.getUpdateScientistDNI());
 		this.scientist.setNomApels(this.mainWindowView.getUpdateNomApels());
@@ -54,7 +60,9 @@ public class UpdateController implements ActionListener {
 		this.assignedTo.setIdProject(this.mainWindowView.getUpdateAssignedToId());
 	}
 	
-	
+	/*
+	 * Update the database
+	 */
 	private void updateEntry() {
 		if (!this.scientist.getDNI().isEmpty()) {
 			MySQLConnectionHandler.updateScientist(connWithMySQL, scientist);

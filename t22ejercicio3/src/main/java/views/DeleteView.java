@@ -43,20 +43,8 @@ public class DeleteView extends JPanel {
 		return this.deleteScientistView.getScientistDNI();
 	}
 
-	public String getScientistNomApels() {
-		return this.deleteScientistView.getNomApels();
-	}
-
 	public String getIdProject() {
 		return this.deleteProjectView.getIdProject();
-	}
-
-	public String getProjectName() {
-		return this.deleteProjectView.getProjectName();
-	}
-
-	public String getProjectHours() {
-		return this.deleteProjectView.getHours();
 	}
 
 	public String getAssignedToDNI() {

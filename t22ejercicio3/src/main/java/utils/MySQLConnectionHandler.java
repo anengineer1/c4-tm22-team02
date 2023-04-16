@@ -12,6 +12,9 @@ import models.Project;
 import models.Scientist;
 import views.InsertRelationScientistProject;
 
+/*
+ * Static methods for handling the flux of information to the database
+ */
 public class MySQLConnectionHandler {
 
 	public static Connection initConnection(String ip, String puerto, String usuario, String contrasena) {

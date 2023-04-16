@@ -10,6 +10,9 @@ import models.Scientist;
 import utils.MySQLConnectionHandler;
 import views.MainWindowView;
 
+/*
+ * Controller for introducing new entries
+ */
 public class InsertController implements ActionListener {
 
 	private MainWindowView mainWindowView;
@@ -34,10 +37,14 @@ public class InsertController implements ActionListener {
 		
 		// Get all the info from the view
 		this.infoFromViewToModels();
+		// Insert into database
 		this.insertToDb();
 
 	}
 
+	/*
+	 * Getting the infor from the GUI
+	 */
 	private void infoFromViewToModels() {
 		this.scientist.setDNI(this.mainWindowView.getInsertScientistView().getScientistDNI());
 		this.scientist.setNomApels(this.mainWindowView.getInsertScientistView().getNomApels());
@@ -51,6 +58,9 @@ public class InsertController implements ActionListener {
 	}
 	
 	
+	/*
+	 * Insert into db
+	 */
 	private void insertToDb() {
 		if (!this.scientist.getDNI().isEmpty()) {
 			MySQLConnectionHandler.insertScientists(this.connWithMySQL, this.scientist);

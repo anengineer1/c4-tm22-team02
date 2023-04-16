@@ -44,7 +44,7 @@ public class LookUpView extends JPanel {
 		this.projectModel = new DefaultTableModel(new Object[][] { { null, null, null }, },
 				new String[] { "Id Proyecto", "Nombre Proyecto", "Horas" });
 		this.projectModel.setRowCount(0);
-		
+
 		this.assignedModel = new DefaultTableModel(new Object[][] { { null, null }, },
 				new String[] { "DNI", "Id Proyecto" });
 		this.assignedModel.setRowCount(0);
@@ -53,7 +53,7 @@ public class LookUpView extends JPanel {
 	}
 
 	private void initInterface() {
-		setLayout(new MigLayout("", "[300px,grow][300px][300px]", "[150px][30px][248.00,grow]"));
+		setLayout(new MigLayout("", "[300px,grow][300px][300px]", "[150px][30px][][248.00,grow]"));
 
 		this.lookUpScientistView = new LookUpScientistView();
 		this.add(this.lookUpScientistView, "cell 0 0,grow");
@@ -64,10 +64,6 @@ public class LookUpView extends JPanel {
 		this.lookUpRelationScientistProject = new LookUpRelationScientistProject();
 		this.add(this.lookUpRelationScientistProject, "cell 2 0,grow");
 
-		// Add buttons
-		this.lookButton = new JButton("Consulta completa");
-		this.add(lookButton, "flowx,cell 0 1,alignx left,growy");
-
 		projectButton = new JButton("Consulta proyecto");
 		projectButton.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(projectButton, "cell 1 1");
@@ -75,8 +71,12 @@ public class LookUpView extends JPanel {
 		assignedToButton = new JButton("Consulta asignación");
 		add(assignedToButton, "cell 2 1");
 
+		// Add buttons
+		this.lookButton = new JButton("Consulta completa");
+		this.add(lookButton, "cell 0 2,alignx left,growy");
+
 		scrollPane = new JScrollPane();
-		add(scrollPane, "cell 0 2 3 1,grow");
+		add(scrollPane, "cell 0 3 3 1,grow");
 
 		table = new JTable();
 		table.setModel(this.currentModel);

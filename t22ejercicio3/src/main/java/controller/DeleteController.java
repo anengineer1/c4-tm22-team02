@@ -52,26 +52,20 @@ public class DeleteController implements ActionListener {
 	}
 
 	private void deleteEntry() {
-//		if (this.scientist.getDNI() != "") {
-//			MySQLConnectionHandler.deleteScientist(connWithMySQL, scientist);
-//		} else {
-//			System.out.println("Borrado no efectuado");
-//		}
-//		
-//		if (this.project.getIdProject() != "") {
-//			MySQLConnectionHandler.deleteProject(connWithMySQL, project);
-//		} else {
-//			System.out.println("Borrado no efectuado");
-//		}
-//		
-//		if ((this.assignedTo.getDNI() != "") && (this.assignedTo.getProjectId() != "")) {
-//			MySQLConnectionHandler.deleteAssignedTo(connWithMySQL, assignedTo);
-//		} else {
-//			System.out.println("Borrado no efectuado");
-//		}
-
-		if (this.assignedTo.getDNI() != "") {
-			MySQLConnectionHandler.deleteEntry(connWithMySQL, assignedTo);
+		if (!this.scientist.getDNI().isEmpty()) {
+			MySQLConnectionHandler.deleteScientist(connWithMySQL, scientist);
+		} else {
+			System.out.println("Borrado no efectuado");
+		}
+		
+		if (!this.project.getIdProject().isEmpty()) {
+			MySQLConnectionHandler.deleteProject(connWithMySQL, project);
+		} else {
+			System.out.println("Borrado no efectuado");
+		}
+		
+		if (!this.assignedTo.getDNI().isEmpty() && !this.assignedTo.getProjectId().isEmpty()) {
+			MySQLConnectionHandler.deleteAssignedTo(connWithMySQL, assignedTo);
 		} else {
 			System.out.println("Borrado no efectuado");
 		}
