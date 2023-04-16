@@ -22,9 +22,10 @@ import javax.swing.SwingConstants;
  */
 public class ReadClientView extends JPanel {
 
-	private JTextField tfRead1;
-	private JTextField tfRead2;
-	private JTable tableClients;
+	public JTextField tfRead1;
+	public JTextField tfRead2;
+	public JButton btnNewButton;
+	public JTable tableClients;
 
 	/**
 	 * 
