@@ -123,6 +123,9 @@ public class Cliente {
 		this.fecha = mysqlFecha;
 	}
 
+	/*
+	 * CREATE: Insert Client in db
+	 */
 	public void insertClientData() {
 
 		// String with client attributes
@@ -133,12 +136,19 @@ public class Cliente {
 		db.insertData("clientes", "cliente", newClient, conexion);
 	}
 	
+	/*
+	 * READ: Select rows by Name
+	 */
 	public ResultSet readClientDataName(String string) {
 		ResultSet rs;
 		rs=db.getValuesName("clientes", "cliente", conexion,nombre);
 		System.out.println(rs);
 		return rs;
 	}
+	
+	/*
+	 * READ: Select rows by Dni
+	 */
 	public ResultSet readClientDataDni(String dni) {
 		ResultSet rs;
 		rs=db.getValuesDni("clientes", "cliente", conexion, Integer.parseInt(dni));
