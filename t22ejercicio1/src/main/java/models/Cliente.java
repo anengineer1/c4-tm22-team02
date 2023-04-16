@@ -4,6 +4,7 @@
 package models;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -130,6 +131,19 @@ public class Cliente {
 
 		// Insert data new client in db
 		db.insertData("clientes", "cliente", newClient, conexion);
+	}
+	
+	public ResultSet readClientDataName(String string) {
+		ResultSet rs;
+		rs=db.getValuesName("clientes", "cliente", conexion,nombre);
+		System.out.println(rs);
+		return rs;
+	}
+	public ResultSet readClientDataDni(String dni) {
+		ResultSet rs;
+		rs=db.getValuesDni("clientes", "cliente", conexion, Integer.parseInt(dni));
+		System.out.println(rs);
+		return rs;
 	}
 
 }

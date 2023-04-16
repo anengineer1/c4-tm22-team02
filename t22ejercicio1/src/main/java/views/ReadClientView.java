@@ -63,7 +63,7 @@ public class ReadClientView extends JPanel {
 		tfRead1.setColumns(10);
 		this.add(tfRead1);
 
-		JButton btnNewButton = new JButton("Buscar ");
+		btnNewButton = new JButton("Buscar ");
 		btnNewButton.setBounds(611, 223, 135, 49);
 		btnNewButton.setBorder(null);
 		btnNewButton.setIcon(new ImageIcon(MainView.class.getResource("/resources/assets/icons/lupa.png")));

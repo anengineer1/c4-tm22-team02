@@ -65,14 +65,6 @@ public class MainView extends JFrame {
 		contentPane.add(tabbedPane);
 
 		/*
-		 * Read Client View
-		 */
-		/*
-		 * rclient = new ReadClientView(); rclient.setBackground(new Color(0, 64, 128));
-		 * rclient.setBounds(12, 12, 870, 561); tabbedPane.addTab("Consulta Cliente",
-		 * null, rclient, "Consulta Cliente"); rclient.setLayout(null);
-		 * tabbedPane.setEnabledAt(1, true); this.setVisible(true);
-		 * 
 		 * 
 		 * Update Client View
 		 * 

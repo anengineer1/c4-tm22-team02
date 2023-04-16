@@ -34,6 +34,7 @@ public class CreateClientController implements ActionListener {
 
 	/**
 	 * Constructor
+	 * @param cliente, vista
 	 */
 	public CreateClientController(Cliente cliente, MainView vista) {
 		this.cliente = cliente;
@@ -45,7 +46,6 @@ public class CreateClientController implements ActionListener {
 
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
-				// TODO Auto-generated method stub
 				if ("date".equals(evt.getPropertyName())) {
 					System.out.println( evt.getNewValue().toString());
 	                System.out.println(evt.getPropertyName()
@@ -88,7 +88,6 @@ public class CreateClientController implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Hola");
 
 		/*-- Button Insert new Client Listener --*/
 		try {

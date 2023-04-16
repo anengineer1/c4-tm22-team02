@@ -109,6 +109,44 @@ public class Database {
 		return resultSet;
 	}
 
+	//-----------------------------------------------------------------
+	public java.sql.ResultSet getValuesName(String db, String table, Connection conexion, String Name) {
+		java.sql.ResultSet resultSet = null;
+		try {
+			String queryDB = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(queryDB);
+
+			String querySelect = "SELECT * FROM " + table + " WHERE nombre  = '" + Name+"';";
+			Statement stsel = conexion.createStatement();
+
+			resultSet = stsel.executeQuery(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
+	}
+	
+	//-----------------------------------------------------------------
+	public java.sql.ResultSet getValuesDni(String db, String table, Connection conexion, int dni) {
+		java.sql.ResultSet resultSet = null;
+		try {
+			String queryDB = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(queryDB);
+
+			String querySelect = "SELECT * FROM " + table + " WHERE dni  = " + dni+";";
+			Statement stsel = conexion.createStatement();
+
+			resultSet = stsel.executeQuery(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
+	}
+	
 	public void deleteDatabase(String db, String table, String ID,String IDValor, Connection conexion) {
 		try {
 
