@@ -33,7 +33,6 @@ public class MainView extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		// contentPane.setLayout(null);
 

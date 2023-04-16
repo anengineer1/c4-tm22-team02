@@ -14,7 +14,7 @@ public class Cliente {
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	private int dni;
+	private String dni;
 	private String fecha;
 
 	/**
@@ -84,14 +84,14 @@ public class Cliente {
 	/**
 	 * @return the dni
 	 */
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
 	/**
 	 * @param dni the dni to set
 	 */
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 

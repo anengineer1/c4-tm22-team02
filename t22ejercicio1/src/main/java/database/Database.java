@@ -18,9 +18,8 @@ public class Database {
 			System.out.println("Conectado a la base de datos");
 
 		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println(123321);
-			//e.printStackTrace();
+			System.out.println("Error to connect");
+			e.printStackTrace();
 		}
 
 		return conexion;

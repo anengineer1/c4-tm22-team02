@@ -19,10 +19,12 @@ import javax.swing.ImageIcon;
 
 public class CreateClientView extends JPanel {
 
-	private JTextField tfCreate1;
-	private JTextField tfCreate3;
-	private JTextField tfCreate2;
-	private JTextField tfCreate4;
+	public JTextField tfCreate1;
+	public JTextField tfCreate3;
+	public JTextField tfCreate2;
+	public JTextField tfCreate4;
+	public JCalendar jcFechaAlta;
+	public JButton btnCreateClient;
 	
 	/**
 	 * Create the panel.
@@ -121,16 +123,16 @@ public class CreateClientView extends JPanel {
 		lblCreate5.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
 		this.add(lblCreate5);
 		
-		JCalendar jcFechaAlta = new JCalendar();
+		jcFechaAlta = new JCalendar();
 		jcFechaAlta.setBounds(344, 227, 212, 159);
 		this.add(jcFechaAlta);
 		
-		JButton btnNewButton = new JButton("Finalizar Alta de Cliente");
-		btnNewButton.setBounds(344, 421, 280, 55);
-		btnNewButton.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
-		btnNewButton.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
-		btnNewButton.setBackground(new Color(255, 255, 255));
-		this.add(btnNewButton);
+		btnCreateClient = new JButton("Finalizar Alta de Cliente");
+		btnCreateClient.setBounds(344, 421, 280, 55);
+		btnCreateClient.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
+		btnCreateClient.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
+		btnCreateClient.setBackground(new Color(255, 255, 255));
+		this.add(btnCreateClient);
 	}
 
 	/**
