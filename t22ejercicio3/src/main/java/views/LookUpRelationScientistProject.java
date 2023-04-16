@@ -26,7 +26,7 @@ public class LookUpRelationScientistProject extends JPanel {
 
 		this.inputDNIScientist = new JTextField();
 		this.inputDNIScientist.setBounds(160, 10, 120, 30);
-		this.inputDNIScientist.setText("*");
+		this.inputDNIScientist.setText("%");
 		this.add(this.inputDNIScientist);
 
 		this.labelProjectId = new JLabel("Id Projecto");
@@ -35,7 +35,7 @@ public class LookUpRelationScientistProject extends JPanel {
 
 		this.inputProjectId = new JTextField();
 		this.inputProjectId.setBounds(160, 50, 120, 30);
-		this.inputProjectId.setText("*");
+		this.inputProjectId.setText("%");
 		this.add(this.inputProjectId);
 
 	}

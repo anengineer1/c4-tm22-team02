@@ -4,14 +4,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class LookUpScientistView extends JPanel {
+public class UpdateScientistView extends JPanel {
 	private JTextField inputDNIScientist;
 	private JTextField inputNomApels;
 
 	private JLabel labelDNIScientist;
 	private JLabel labelNomApels;
 
-	public LookUpScientistView() {
+	public UpdateScientistView() {
 
 		initializeView();
 	}
@@ -26,7 +26,6 @@ public class LookUpScientistView extends JPanel {
 
 		this.inputDNIScientist = new JTextField();
 		this.inputDNIScientist.setBounds(160, 10, 120, 30);
-		this.inputDNIScientist.setText("%");
 		this.add(this.inputDNIScientist);
 
 		this.labelNomApels = new JLabel("Nombre completo");
@@ -35,7 +34,6 @@ public class LookUpScientistView extends JPanel {
 
 		this.inputNomApels = new JTextField();
 		this.inputNomApels.setBounds(160, 50, 120, 30);
-		this.inputNomApels.setText("%");
 		this.add(this.inputNomApels);
 
 	}

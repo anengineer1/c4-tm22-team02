@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class LookUpProjectView extends JPanel {
+public class UpdateProjectView extends JPanel {
 
 	private JTextField inputIdProject;
 	private JTextField inputProjectName;
@@ -14,7 +14,7 @@ public class LookUpProjectView extends JPanel {
 	private JLabel labelProjectName;
 	private JLabel labelHours;
 
-	public LookUpProjectView() {
+	public UpdateProjectView() {
 
 		initializeView();
 	}
@@ -29,7 +29,6 @@ public class LookUpProjectView extends JPanel {
 
 		this.inputIdProject = new JTextField();
 		this.inputIdProject.setBounds(160, 10, 120, 30);
-		this.inputIdProject.setText("%");
 		this.add(this.inputIdProject);
 
 		this.labelProjectName = new JLabel("Nombre de proyecto");
@@ -38,7 +37,6 @@ public class LookUpProjectView extends JPanel {
 
 		this.inputProjectName = new JTextField();
 		this.inputProjectName.setBounds(160, 50, 120, 30);
-		this.inputProjectName.setText("%");
 		this.add(this.inputProjectName);
 
 		this.labelHours = new JLabel("Número de horas");
@@ -47,7 +45,6 @@ public class LookUpProjectView extends JPanel {
 
 		this.inputHours = new JTextField();
 		this.inputHours.setBounds(160, 90, 120, 30);
-		this.inputHours.setText("%");
 		this.add(this.inputHours);
 
 	}

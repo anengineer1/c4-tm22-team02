@@ -10,6 +10,9 @@ import models.Scientist;
 import utils.MySQLConnectionHandler;
 import views.MainWindowView;
 
+/*
+ * Controller for introducing new entries
+ */
 public class InsertController implements ActionListener {
 
 	private MainWindowView mainWindowView;
@@ -34,10 +37,14 @@ public class InsertController implements ActionListener {
 		
 		// Get all the info from the view
 		this.infoFromViewToModels();
+		// Insert into database
 		this.insertToDb();
 
 	}
 
+	/*
+	 * Getting the infor from the GUI
+	 */
 	private void infoFromViewToModels() {
 		this.scientist.setDNI(this.mainWindowView.getInsertScientistView().getScientistDNI());
 		this.scientist.setNomApels(this.mainWindowView.getInsertScientistView().getNomApels());
@@ -51,13 +58,25 @@ public class InsertController implements ActionListener {
 	}
 	
 	
+	/*
+	 * Insert into db
+	 */
 	private void insertToDb() {
+		if (!this.scientist.getDNI().isEmpty()) {
+			MySQLConnectionHandler.insertScientists(this.connWithMySQL, this.scientist);
+		}
 		
-		MySQLConnectionHandler.insertScientists(this.connWithMySQL, this.scientist);
-		MySQLConnectionHandler.insertProject(this.connWithMySQL, this.project);
-		MySQLConnectionHandler.insertAssignedTo(this.connWithMySQL, this.assignedTo);
+		if (!this.project.getIdProject().isEmpty()) {
+			MySQLConnectionHandler.insertProject(this.connWithMySQL, this.project);
+		}
+		
+		if (this.assignedTo.getDNI().isEmpty() || this.assignedTo.getProjectId().isEmpty()) {
+			
+		} else  {
+			MySQLConnectionHandler.insertProject(this.connWithMySQL, this.project);
+			MySQLConnectionHandler.insertAssignedTo(this.connWithMySQL, this.assignedTo);
+		}
 		
 	}
-
 
 }

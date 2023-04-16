@@ -3,6 +3,10 @@ package views;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 
 public class InsertScientistView extends JPanel {
 	private JTextField inputDNIScientist;
@@ -25,6 +29,19 @@ public class InsertScientistView extends JPanel {
 		this.add(this.labelDNIScientist);
 
 		this.inputDNIScientist = new JTextField();
+		AbstractDocument doc = (AbstractDocument) this.inputDNIScientist.getDocument();
+		doc.setDocumentFilter(new DocumentFilter() {
+		    @Override
+		    public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
+		        String currentText = fb.getDocument().getText(0, fb.getDocument().getLength());
+		        int currentLength = currentText.length() - length + text.length();
+		        if (currentLength <= 8) {
+		            super.replace(fb, offset, length, text, attrs);
+		        } else {
+		            // Display an error message or perform some other action
+		        }
+		    }
+		});
 		this.inputDNIScientist.setBounds(160, 10, 120, 30);
 		this.add(this.inputDNIScientist);
 

@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import net.miginfocom.swing.MigLayout;
 
 public class MainWindowView extends JFrame {
 
@@ -19,6 +20,8 @@ public class MainWindowView extends JFrame {
 	private InsertProjectView insertProjectView;
 	private InsertRelationScientistProject insertRelationScientistProject;
 	private LookUpView lookUpView;
+	private DeleteView deleteView;
+	private UpdateView updateView;
 
 	public MainWindowView() {
 		initialize();
@@ -26,8 +29,8 @@ public class MainWindowView extends JFrame {
 	}
 
 	private void initialize() {
-		this.setTitle("Convertidor de monedas");
-		this.setBounds(100, 100, 900, 700);
+		this.setTitle("Base de datos cientificos");
+		this.setBounds(100, 100, 1025, 700);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.fillFrame();
 
@@ -38,35 +41,41 @@ public class MainWindowView extends JFrame {
 	private void fillFrame() {
 
 		this.contentPane = new JPanel();
-		this.contentPane.setLayout(null);
 		this.contentPane.setBounds(0, 0, this.getWidth(), this.getHeight());
 		// this.setContentPane(this.contentPane);
-		
+
 		this.tabbedPane = new JTabbedPane();
 		this.tabbedPane.addTab("Introducción de datos", contentPane);
 		this.setContentPane(this.tabbedPane);
+		contentPane.setLayout(new MigLayout("", "[300px][300px][300px]", "[150px][30px][]"));
 
 		this.insertScientistView = new InsertScientistView();
-		this.insertScientistView.setBounds(10, 10, 300, 150);
-		this.contentPane.add(this.insertScientistView);
+		this.contentPane.add(this.insertScientistView, "cell 0 0,grow");
 
 		this.insertProjectView = new InsertProjectView();
-		this.insertProjectView.setBounds(350, 10, 300, 150);
-		this.contentPane.add(this.insertProjectView);
+		this.contentPane.add(this.insertProjectView, "cell 1 0,grow");
 
 		this.insertRelationScientistProject = new InsertRelationScientistProject();
-		this.insertRelationScientistProject.setBounds(700, 10, 300, 150);
-		this.contentPane.add(this.insertRelationScientistProject);
+		this.contentPane.add(this.insertRelationScientistProject, "cell 2 0,grow");
 
 		// Add button
 		this.insertButton = new JButton("Insert data");
-		this.insertButton.setBounds(10, 300, 150, 30);
-		this.contentPane.add(insertButton);
-		
+		this.contentPane.add(insertButton, "cell 0 1,alignx left,growy");
+
 		// Add look up view
 		this.lookUpView = new LookUpView();
 		this.lookUpView.setBounds(0, 0, this.getWidth(), this.getHeight());
 		this.tabbedPane.addTab("Visualización", this.lookUpView);
+
+		// Add delete view
+		this.deleteView = new DeleteView();
+		this.deleteView.setBounds(0, 0, this.getWidth(), this.getHeight());
+		this.tabbedPane.addTab("Borrado", this.deleteView);
+
+		// Add update view
+		this.updateView = new UpdateView();
+		this.updateView.setBounds(0, 0, this.getWidth(), this.getHeight());
+		this.tabbedPane.addTab("Update", this.updateView);
 	}
 
 	public InsertScientistView getInsertScientistView() {
@@ -80,9 +89,117 @@ public class MainWindowView extends JFrame {
 	public InsertRelationScientistProject getInsertRelationScientistProject() {
 		return insertRelationScientistProject;
 	}
-	
+
+	public void setRow(String DNI, String nom_apels, String id_proj, String nombre_proy, String horas_proy) {
+		this.lookUpView.setRow(DNI, nom_apels, id_proj, nombre_proy, horas_proy);
+	}
+
+	public void setScientistRow(String DNI, String nom_apels) {
+		this.lookUpView.setScientistRow(DNI, nom_apels);
+	}
+
+	public void setProjectRow(String id_proj, String nombre_proy, String horas_proy) {
+		this.lookUpView.setProjectRow(id_proj, nombre_proy, horas_proy);
+	}
+
+	public void setAssignedToRow(String DNI, String id_proj) {
+		this.lookUpView.setAssignedToRow(DNI, id_proj);
+	}
+
+	public void clearRows() {
+		this.lookUpView.clearRows();
+	}
+
 	public JButton getInsertButton() {
 		return this.insertButton;
 	}
-	
+
+	public String getLookUpScientistDNI() {
+		return this.lookUpView.getScientistDNI();
+	}
+
+	public String getLookUpScientistNomApels() {
+		return this.lookUpView.getScientistNomApels();
+	}
+
+	public String getLookUpProjectId() {
+		return this.lookUpView.getIdProject();
+	}
+
+	public String getLookUpProjectName() {
+		return this.lookUpView.getProjectName();
+	}
+
+	public String getLookUpProjectHours() {
+		return this.lookUpView.getProjectHours();
+	}
+
+	public JButton getLookUpButton() {
+		return this.lookUpView.getButton();
+	}
+
+	public JButton getLookUpScientistButton() {
+		return this.lookUpView.getScientistButton();
+	}
+
+	public JButton getLookUpProjectButton() {
+		return this.lookUpView.getProjectButton();
+	}
+
+	public JButton getLookUpAssignedToButton() {
+		return this.lookUpView.getAssignedToButton();
+	}
+
+	public String getDeleteScientistDNI() {
+		return this.deleteView.getScientistDNI();
+	}
+
+	public String getDeleteProjectId() {
+		return this.deleteView.getIdProject();
+	}
+
+	public String getDeleteAssginedToDNI() {
+		return this.deleteView.getAssignedToDNI();
+	}
+
+	public String getDeleteAssignedToId() {
+		return this.deleteView.getAssignedToProjectId();
+	}
+
+	public JButton getDeleteButton() {
+		return this.deleteView.getButton();
+	}
+
+	public String getUpdateScientistDNI() {
+		return this.updateView.getScientistDNI();
+	}
+
+	public String getUpdateProjectId() {
+		return this.updateView.getIdProject();
+	}
+
+	public String getUpdateAssginedToDNI() {
+		return this.updateView.getAssignedToDNI();
+	}
+
+	public String getUpdateAssignedToId() {
+		return this.updateView.getAssignedToProjectId();
+	}
+
+	public JButton getUpdateButton() {
+		return this.updateView.getButton();
+	}
+
+	public String getUpdateNomApels() {
+		return this.updateView.getScientistNomApels();
+	}
+
+	public String getUpdateProjectName() {
+		return this.updateView.getProjectName();
+	}
+
+	public String getUpdateProjectHours() {
+		return this.updateView.getProjectHours();
+	}
+
 }
