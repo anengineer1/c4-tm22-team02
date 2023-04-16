@@ -23,12 +23,12 @@ import com.toedter.calendar.JCalendar;
 
 public class VideoView extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField tfCreate1;
-	private JTextField tfCreate3;
-	private JTextField tfCreate2;
-	private JTextField tfCreate4;
-	private JTable table;
+	public JPanel contentPane;
+	public JTextField tfCreate1;
+	public JTextField tfCreate2;
+	public JTextField tfCreate3;
+	public JButton btnAddVideo;
+	public JTable table;
 
 	/**
 	 * Create the frame.
@@ -169,19 +169,18 @@ public class VideoView extends JFrame {
 		gbc_tfCreate3.gridx = 1;
 		gbc_tfCreate3.gridy = 4;
 		panel_crear_video.add(tfCreate3, gbc_tfCreate3);
-
 		
 
-		JButton btnNewButton = new JButton("Añadir");
-		btnNewButton.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
-		btnNewButton.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
-		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnAddVideo = new JButton("Añadir");
+		btnAddVideo.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
+		btnAddVideo.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
+		btnAddVideo.setBackground(new Color(255, 255, 255));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.anchor = GridBagConstraints.WEST;
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton.gridx = 1;
 		gbc_btnNewButton.gridy = 6;
-		panel_crear_video.add(btnNewButton, gbc_btnNewButton);
+		panel_crear_video.add(btnAddVideo, gbc_btnNewButton);
 
 		JPanel panel_consultar_videos = new JPanel();
 		panel_consultar_videos.setBackground(new Color(0, 64, 128));
