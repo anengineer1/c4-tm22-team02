@@ -90,12 +90,4 @@ public class ReadClientView extends JPanel {
 		this.add(tableClients);
 
 	}
-
-	/**
-	 * @return the this
-	 */
-	public JPanel getthis() {
-		return this;
-	}
-
 }

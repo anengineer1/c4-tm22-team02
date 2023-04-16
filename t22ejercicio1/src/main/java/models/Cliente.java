@@ -4,6 +4,8 @@
 package models;
 
 import java.sql.Connection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import database.Database;
 
@@ -113,14 +115,17 @@ public class Cliente {
 	/**
 	 * @param fecha the fecha to set
 	 */
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
+	public void setFecha(Date fecha) {
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+		String mysqlFecha = formatter.format(fecha);
+		this.fecha = mysqlFecha;
 	}
 
 	public void insertClientData() {
 
 		// String with client attributes
-		String newClient = (null+","+nombre + "," + apellido + "," + Integer.parseInt(dni) + "," + fecha);
+		String newClient = (null+",'"+nombre + "','" + apellido + "','" + direccion + "',"+ Integer.parseInt(dni) + ",'" + fecha+"'");
 		System.out.println(newClient);
 
 		// Insert data new client in db

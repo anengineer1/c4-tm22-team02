@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Date;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -47,6 +47,7 @@ public class CreateClientController implements ActionListener {
 			public void propertyChange(PropertyChangeEvent evt) {
 				// TODO Auto-generated method stub
 				if ("date".equals(evt.getPropertyName())) {
+					System.out.println( evt.getNewValue().toString());
 	                System.out.println(evt.getPropertyName()
 	                    + ": " + (Date) evt.getNewValue());
 	            }
@@ -96,7 +97,7 @@ public class CreateClientController implements ActionListener {
 			cliente.setApellido(ccview.tfCreate2.getText());
 			cliente.setDireccion(ccview.tfCreate3.getText());
 			cliente.setDni(ccview.tfCreate4.getText());
-			System.out.println(ccview.jcFechaAlta.getDate());
+			cliente.setFecha(ccview.jcFechaAlta.getDate());
 			
 			cliente.insertClientData();
 
