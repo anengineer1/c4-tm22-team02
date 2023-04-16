@@ -3,27 +3,34 @@
  */
 package models;
 
+import java.sql.Connection;
+
+import database.Database;
+
 /**
  * @author elena-01
  *
  */
 public class Cliente {
 
-	/* ----- Atributos ----*/
+	/* ----- Atributos ---- */
 	private int id;
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	private int dni;
+	private String dni;
 	private String fecha;
-	
+	// Database
+	private Connection conexion;
+	private Database db;
+
 	/**
 	 * 
 	 */
-	public Cliente() {
+	public Cliente(Database db, Connection conexion) {
 		// TODO Auto-generated constructor stub
-
-		
+		this.db = db;
+		this.conexion = conexion;
 	}
 
 	/**
@@ -85,14 +92,14 @@ public class Cliente {
 	/**
 	 * @return the dni
 	 */
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
 	/**
 	 * @param dni the dni to set
 	 */
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
@@ -108,6 +115,16 @@ public class Cliente {
 	 */
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
+	}
+
+	public void insertClientData() {
+
+		// String with client attributes
+		String newClient = (null+","+nombre + "," + apellido + "," + Integer.parseInt(dni) + "," + fecha);
+		System.out.println(newClient);
+
+		// Insert data new client in db
+		db.insertData("clientes", "cliente", newClient, conexion);
 	}
 
 }
