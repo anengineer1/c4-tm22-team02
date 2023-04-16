@@ -82,5 +82,15 @@ public class Video {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	public void insertVideoData() {
+
+		// String with client attributes
+		String newClient = (null+","+nombre + "," + apellido + "," + Integer.toString(dni) + "," + fecha);
+		System.out.println(newClient);
+
+		// Insert data new client in db
+		db.insertData("clientes", "cliente", newClient, conexion);
+	}
 
 }
