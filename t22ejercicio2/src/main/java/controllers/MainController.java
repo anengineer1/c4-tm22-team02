@@ -13,7 +13,9 @@ import javax.swing.JOptionPane;
 
 import database.Database;
 import models.Cliente;
+import models.Video;
 import views.CreateClientView;
+import views.CreateVideoView;
 import views.DeleteClientView;
 import views.MainView;
 import views.ReadClientView;
@@ -27,10 +29,13 @@ public class MainController {
 
 	// Model
 	public Cliente client;
+	public Video video;
 	// Views + Controllers Atributes
 	private MainView mview;
 	public CreateClientView ccview;
 	private CreateClientController ccontrol;
+	private CreateVideoView cvview;
+	private CreateVideoController cvcontrol;
 	private ReadClientView rcview;
 	private ReadClientController rcontrol;
 	private UpdateClientView ucview;
@@ -52,9 +57,13 @@ public class MainController {
 		initConnection();
 		// Model
 		client = new Cliente(db, conexion);
+		video = new Video(db, conexion);
 		// Create view for CreateClient
 		ccontrol = new CreateClientController(client, mview);
 		ccontrol.initController();
+		// Create view for CreateVideo
+		cvcontrol = new CreateVideoController(video, mview);
+		cvcontrol.initController();
 
 
 		mview.addWindowListener(new WindowAdapter()
@@ -105,6 +114,15 @@ public class MainController {
 			db.insertData("clientes", "cliente", cliente1, conexion);
 			db.insertData("clientes", "cliente", cliente2, conexion);
 			db.insertData("clientes", "cliente", cliente3, conexion);
+			
+			String atributosVideo = "id int(11) NOT NULL AUTO_INCREMENT,\r\n"
+					+ "title varchar(250) DEFAULT NULL,\r\n"
+					+ "director varchar(250) DEFAULT NULL,\r\n"
+					+ "cli_id int DEFAULT NULL,\r\n"
+					+ "PRIMARY KEY (id),\r\n"
+					+ "CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES cliente (id)";
+			
+			db.createTable("clientes", "videos", atributosVideo, conexion);
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

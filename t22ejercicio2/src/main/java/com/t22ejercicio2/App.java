@@ -2,7 +2,9 @@ package com.t22ejercicio2;
 
 import java.awt.EventQueue;
 
-import views.VideoView;
+import controllers.MainController;
+import views.CreateVideoView;
+import views.MainView;
 
 public class App {
 
@@ -10,8 +12,9 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VideoView frame = new VideoView();
+					MainView frame = new MainView();
 					frame.setVisible(true);
+					MainController controller = new MainController(frame);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -1,10 +1,22 @@
 package models;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+import database.Database;
+
+/**
+ * @author Marc RG
+ *
+ */
 public class Video {
 	private int id;
 	private String title;
 	private String director;
 	private Cliente cliente;
+
+	private Connection conexion;
+	private Database db;
 
 	/**
 	 * @param id
@@ -12,12 +24,9 @@ public class Video {
 	 * @param director
 	 * @param cliente
 	 */
-	public Video(int id, String title, String director, Cliente cliente) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.director = director;
-		this.cliente = cliente;
+	public Video(Database db, Connection conexion) {
+		this.db = db;
+		this.conexion = conexion;
 	}
 
 	/**
@@ -82,15 +91,15 @@ public class Video {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
+
 	public void insertVideoData() {
 
 		// String with client attributes
-		String newClient = (null+","+nombre + "," + apellido + "," + Integer.toString(dni) + "," + fecha);
-		System.out.println(newClient);
+		String newVideo = (null + ",'" + title + "','" + director + "'," + cliente.getId());
+		System.out.println(newVideo);
 
 		// Insert data new client in db
-		db.insertData("clientes", "cliente", newClient, conexion);
+		db.insertData("clientes", "video", newVideo, conexion);
 	}
 
 }

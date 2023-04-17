@@ -3,25 +3,21 @@ package views;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import com.toedter.calendar.JCalendar;
-
-public class VideoView extends JFrame {
+/**
+ * @author Marc RG
+ *
+ */
+public class CreateVideoView extends JPanel {
 
 	public JPanel contentPane;
 	public JTextField tfCreate1;
@@ -33,7 +29,81 @@ public class VideoView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VideoView() {
+	public CreateVideoView() {
+		this.setForeground(new Color(255, 255, 255));
+		this.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 14));
+		this.setToolTipText("");
+		this.setName("");
+		this.setBackground(new Color(0, 64, 128));
+		this.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("Alta de cliente");
+		lblNewLabel_2.setBounds(96, 69, 142, 26);
+		
+		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.RIGHT);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel_2.setToolTipText("Alta cliente");
+		lblNewLabel_2.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 22));
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		this.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(103, 179, 128, 128);
+		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel.setIcon(new ImageIcon(MainView.class.getResource("/resources/assets/icons/add-client128.png")));
+		this.add(lblNewLabel);
+		
+		JLabel lblCreate1 = new JLabel("Titulo");
+		lblCreate1.setBounds(292, 105, 47, 16);
+		lblCreate1.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
+		lblCreate1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblCreate1.setForeground(new Color(255, 255, 255));
+		this.add(lblCreate1);
+		
+		tfCreate1 = new JTextField();
+		tfCreate1.setBounds(344, 100, 280, 27);
+		tfCreate1.setMaximumSize(new Dimension(250, 250));
+		tfCreate1.setToolTipText("Introduce Titulo");
+		this.add(tfCreate1);
+		tfCreate1.setColumns(10);
+		
+		JLabel lblCreate2 = new JLabel("Director");
+		lblCreate2.setBounds(286, 137, 53, 16);
+		lblCreate2.setToolTipText("Director del video");
+		lblCreate2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblCreate2.setForeground(Color.WHITE);
+		lblCreate2.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
+		this.add(lblCreate2);
+		
+		tfCreate2 = new JTextField();
+		tfCreate2.setBounds(344, 132, 280, 27);
+		tfCreate2.setToolTipText("Introduce director");
+		tfCreate2.setMaximumSize(new Dimension(250, 250));
+		tfCreate2.setColumns(10);
+		this.add(tfCreate2);
+		
+		JLabel lblCreate3 = new JLabel("DNI Cliente");
+		lblCreate3.setBounds(283, 169, 56, 16);
+		lblCreate3.setHorizontalAlignment(SwingConstants.LEFT);
+		lblCreate3.setForeground(Color.WHITE);
+		lblCreate3.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
+		this.add(lblCreate3);
+		
+		tfCreate3 = new JTextField();
+		tfCreate3.setBounds(344, 164, 280, 27);
+		tfCreate3.setToolTipText("Introduce DNI cliente");
+		tfCreate3.setMaximumSize(new Dimension(250, 250));
+		tfCreate3.setColumns(10);
+		this.add(tfCreate3);
+		
+		btnAddVideo = new JButton("Añadir video");
+		btnAddVideo.setBounds(344, 421, 280, 55);
+		btnAddVideo.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
+		btnAddVideo.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
+		btnAddVideo.setBackground(new Color(255, 255, 255));
+		this.add(btnAddVideo);
+		
+		/*
 		setTitle("TEAM02: Ejercicio1 - Clientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 927, 659);
@@ -204,7 +274,13 @@ public class VideoView extends JFrame {
 
 		JPanel panel_borrar_video = new JPanel();
 		panel_borrar_video.setBackground(new Color(0, 64, 128));
-		tabbedPane.addTab("Borrar video", null, panel_borrar_video, null);
-
+		tabbedPane.addTab("Borrar video", null, panel_borrar_video, null);*/
+	}
+	
+	/**
+	 * @return the panel_crear_cliente
+	 */
+	public JPanel getPanel_crear_video() {
+		return this;
 	}
 }

@@ -4,6 +4,9 @@
 package models;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import database.Database;
 
@@ -31,6 +34,10 @@ public class Cliente {
 		// TODO Auto-generated constructor stub
 		this.db = db;
 		this.conexion = conexion;
+	}
+	
+	public Cliente() {
+		
 	}
 
 	/**
@@ -125,6 +132,44 @@ public class Cliente {
 
 		// Insert data new client in db
 		db.insertData("clientes", "cliente", newClient, conexion);
+	}
+	
+	public ResultSet readClientDataDni(String dni) {
+		ResultSet rs;
+		rs = db.getValuesDni("clientes", "cliente", conexion, Integer.parseInt(dni));
+		System.out.println(rs);
+		return rs;
+	}
+	
+	public int readClientIdByDni(String dni) throws SQLException {
+		Database dbtest = new Database();
+		conexion = dbtest.openConnection(conexion);
+		int id = db.getClientIdByDni("clientes", "cliente", conexion, Integer.parseInt(dni));
+		conexion.close();
+		/*Database nuevaCon = new Database();
+		
+		System.out.println(nuevaCon.getClientIdByDni("clientes", "cliente", conexion, Integer.parseInt(dni)));*/
+		
+		/*try {
+			id = rs.getInt("id");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		/*
+		try {
+			while(rs.next()) {
+				id = rs.getInt("id");
+			     System.out.print("ID CLIENTE: "+id);
+			     System.out.println("");
+			  }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+		//System.out.println("DNI SELECTED"+id);
+		return id;
 	}
 
 }
