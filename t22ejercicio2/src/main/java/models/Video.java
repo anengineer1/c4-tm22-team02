@@ -116,5 +116,11 @@ public class Video {
 		System.out.println(rs);
 		return rs;
 	}
+	
+	public void deleteVideoByTitle(String title) {
+		
+		db.deleteVideoByTitle("clientes", "videos", conexion, title);
+		System.out.println("ELIMINADO CON EXITO");
+	}
 
 }

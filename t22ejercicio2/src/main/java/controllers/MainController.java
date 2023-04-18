@@ -17,6 +17,7 @@ import models.Video;
 import views.CreateClientView;
 import views.CreateVideoView;
 import views.DeleteClientView;
+import views.DeleteVideoView;
 import views.MainView;
 import views.ReadClientView;
 import views.UpdateClientView;
@@ -43,6 +44,8 @@ public class MainController {
 	private UpdateClientController ucontrol;
 	private DeleteClientView dcview;
 	private DeleteClientController dcontrol;
+	private DeleteVideoView dvview;
+	private DeleteVideoController dvcontrol;
 	// Conexion
 	private Database db;
 	private Connection conexion;
@@ -68,6 +71,9 @@ public class MainController {
 		// Create view for ReadVideo
 		rvcontrol = new ReadVideoController(client, video, mview);
 		rvcontrol.initController();
+		// Create view for DeleteVideo
+		dvcontrol = new DeleteVideoController(video, mview);
+		dvcontrol.initController();
 		
 
 		mview.addWindowListener(new WindowAdapter()
@@ -115,7 +121,7 @@ public class MainController {
 					+ "director varchar(250) DEFAULT NULL,\r\n"
 					+ "cli_id int(11) DEFAULT NULL,\r\n"
 					+ "PRIMARY KEY (id),\r\n"
-					+ "CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES cliente (id) ON UPDATE CASCADE ON DELETE CASCADE";
+					+ "CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES cliente (id)";
 			
 			db.createTable("clientes", "videos", atributosVideo, conexion);
 			

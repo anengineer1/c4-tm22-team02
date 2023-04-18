@@ -217,6 +217,22 @@ public class Database {
 		return 0;
 	}
 
+	public java.sql.ResultSet deleteVideoByTitle(String db, String table, Connection conexion, String title) {
+		java.sql.ResultSet resultSet = null;
+		
+		try {
+			
+			System.out.println(title);
+			String querySelect = "DELETE FROM " + table + " WHERE title = '" + title +"';";
+			Statement stsel = conexion.createStatement();
+			
+			stsel.executeUpdate(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
+	}
 
 	public void deleteDatabase(String db, String table, String ID,String IDValor, Connection conexion) {
 		try {
