@@ -27,7 +27,7 @@ public class MainView extends JFrame {
 	 * Constructor Creates the main window structure for client menu
 	 */
 	public MainView() {
-		setAlwaysOnTop(true);
+		setResizable(false);
 		setTitle("TEAM02: Ejercicio1 - Clientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 914, 793);

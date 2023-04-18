@@ -56,7 +56,7 @@ public class ReadClientController implements ActionListener {
 	/*
 	 * Init the ReadClientView
 	 */
-	private void initView() {
+	public void initView() {
 
 		rcview.setBackground(new Color(0, 64, 128));
 		rcview.setBounds(12, 12, 870, 561);
@@ -98,12 +98,6 @@ public class ReadClientController implements ActionListener {
 			
 			rcview.tableClients.setModel (buildTableModel(rs));
 			//rcview.add(new JScrollPane(rcview.tableClients));
-			
-			//Add scroll to table 
-			/*
-			 * JScrollPane js=new JScrollPane(rcview.tableClients); js.setVisible(true);
-			 * rcview.add(js);
-			 */
 
 		} catch (Exception exception) {
 			exception.printStackTrace();

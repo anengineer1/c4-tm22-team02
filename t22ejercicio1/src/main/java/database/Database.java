@@ -136,7 +136,7 @@ public class Database {
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(queryDB);
 
-			String querySelect = "SELECT * FROM " + table + " WHERE dni  = " + dni+";";
+			String querySelect = "SELECT * FROM " + table + " WHERE dni=" + dni+";";
 			Statement stsel = conexion.createStatement();
 
 			resultSet = stsel.executeQuery(querySelect);
@@ -146,6 +146,22 @@ public class Database {
 		}
 		return resultSet;
 	}
+	
+	/*
+	 * //------------------------------UPDATE---------------------------------
+	 * public void updateData(String db, String table, String atributos, Connection
+	 * conexion) { try { // USE database //String queryDB = "USE " + db + ";";
+	 * String queryBD = ("UPDATE " + table + " SET" + atributos + ");"); Statement
+	 * stdb = conexion.prepareStatement(); stdb.executeUpdate(queryDB);
+	 * 
+	 * // CREATE TABLE Statement st = conexion.createStatement();
+	 * 
+	 * st.executeUpdate("UPDATE " + table + " SET" + atributos + ");");
+	 * System.out.println("data insertada: "+ atributos);
+	 * 
+	 * } catch (SQLException e) { // TODO Auto-generated catch block
+	 * System.out.println("Error insertando data: "+e); } }
+	 */
 	
 	public void deleteDatabase(String db, String table, String ID,String IDValor, Connection conexion) {
 		try {

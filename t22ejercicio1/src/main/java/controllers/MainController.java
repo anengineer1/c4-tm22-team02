@@ -59,6 +59,10 @@ public class MainController {
 		rcontrol = new ReadClientController(client, mview);
 		rcontrol.initController();
 
+		// Create view for UpdateClient
+		ucontrol = new UpdateClientController(client, mview);
+		ucontrol.initController();
+
 		mview.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -92,7 +96,7 @@ public class MainController {
 			// --String that contains table's attibutes
 			String atributosCliente = "id int(11) NOT NULL AUTO_INCREMENT,\r\n"
 					+ "nombre varchar(250) DEFAULT NULL,\r\n" + "apellido varchar(250) DEFAULT NULL,\r\n"
-					+ "direccion varchar(250) DEFAULT NULL,\r\n" + "dni int(11) DEFAULT NULL,\r\n"
+					+ "direccion varchar(250) DEFAULT NULL,\r\n" + "dni int(11) DEFAULT NULL UNIQUE,\r\n"
 					+ "fecha date DEFAULT NULL,\r\n" + "PRIMARY KEY(id)";
 			// -- Create table clients
 			db.createTable("clientes", "cliente", atributosCliente, conexion);

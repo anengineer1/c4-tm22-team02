@@ -16,10 +16,12 @@ import com.toedter.calendar.JCalendar;
 
 public class UpdateClientView extends JPanel {
 
-	private JTextField tfUpdate1;
-	private JTextField tfUpdate3;
-	private JTextField tfUpdate2;
-	private JTextField tfUpdate4;
+	public JTextField tfUpdate1;
+	public JTextField tfUpdate3;
+	public JTextField tfUpdate2;
+	public JTextField tfUpdate4;
+	public JButton btnNewButton1;
+	public JButton btnNewButton2;
 
 	/**
 	 * Create the panel.
@@ -103,14 +105,21 @@ public class UpdateClientView extends JPanel {
 		tfUpdate4.setMaximumSize(new Dimension(250, 250));
 		tfUpdate4.setColumns(10);
 		this.add(tfUpdate4);
+		
+		btnNewButton2 = new JButton("Buscar Cliente");
+		btnNewButton2.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
+		btnNewButton2.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
+		btnNewButton2.setBackground(Color.WHITE);
+		btnNewButton2.setBounds(344, 256, 280, 55);
+		add(btnNewButton2);
 
 
-		JButton btnNewButton = new JButton("Actualizar Datos de Cliente");
-		btnNewButton.setBounds(344, 421, 280, 55);
-		btnNewButton.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
-		btnNewButton.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
-		btnNewButton.setBackground(new Color(255, 255, 255));
-		this.add(btnNewButton);
+		btnNewButton1 = new JButton("Actualizar Datos de Cliente");
+		btnNewButton1.setBounds(344, 421, 280, 55);
+		btnNewButton1.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
+		btnNewButton1.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
+		btnNewButton1.setBackground(new Color(255, 255, 255));
+		this.add(btnNewButton1);
 	}
 
 }

@@ -5,8 +5,11 @@ package models;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.swing.JOptionPane;
 
 import database.Database;
 
@@ -126,34 +129,47 @@ public class Cliente {
 	/*
 	 * CREATE: Insert Client in db
 	 */
-	public void insertClientData() {
+	public void insertClientData() throws SQLException {
 
 		// String with client attributes
-		String newClient = (null+",'"+nombre + "','" + apellido + "','" + direccion + "',"+ Integer.parseInt(dni) + ",'" + fecha+"'");
+		String newClient = (null + ",'" + nombre + "','" + apellido + "','" + direccion + "'," + Integer.parseInt(dni)
+				+ ",'" + fecha + "'");
 		System.out.println(newClient);
 
 		// Insert data new client in db
 		db.insertData("clientes", "cliente", newClient, conexion);
 	}
-	
+
 	/*
 	 * READ: Select rows by Name
 	 */
-	public ResultSet readClientDataName(String string) {
+	public ResultSet readClientDataName(String string) throws SQLException {
 		ResultSet rs;
-		rs=db.getValuesName("clientes", "cliente", conexion,nombre);
+		rs = db.getValuesName("clientes", "cliente", conexion, nombre);
 		System.out.println(rs);
 		return rs;
 	}
-	
+
 	/*
 	 * READ: Select rows by Dni
 	 */
-	public ResultSet readClientDataDni(String dni) {
+	public ResultSet readClientDataDni(String dni) throws SQLException {
 		ResultSet rs;
-		rs=db.getValuesDni("clientes", "cliente", conexion, Integer.parseInt(dni));
+		rs = db.getValuesDni("clientes", "cliente", conexion, Integer.parseInt(dni));
 		System.out.println(rs);
 		return rs;
 	}
+
+	/*
+	 * UPDATE: Update client
+	 
+	public void updateClientData(String string) throws SQLException {
+
+
+		}*/
+
+/*		db.updateData("clientes", "cliente", string, conexion);
+		JOptionPane.showMessageDialog(null, "Usuario Actualizado Correctamente", "OK", JOptionPane.INFORMATION_MESSAGE);
+	}*/
 
 }
