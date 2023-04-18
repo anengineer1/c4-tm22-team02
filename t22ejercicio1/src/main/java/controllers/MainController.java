@@ -62,6 +62,10 @@ public class MainController {
 		// Create view for UpdateClient
 		ucontrol = new UpdateClientController(client, mview);
 		ucontrol.initController();
+		
+		// Create view for DeleteClient
+		dcontrol = new DeleteClientController(client, mview);
+		dcontrol.initController();
 
 		mview.addWindowListener(new WindowAdapter() {
 			@Override

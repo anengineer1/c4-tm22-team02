@@ -63,25 +63,5 @@ public class MainView extends JFrame {
 		// Add into Main Panel (contentPane): the panelTitle and tabbedPane
 		contentPane.add(paneltitle);
 		contentPane.add(tabbedPane);
-
-		/*
-		 * 
-		 * Update Client View
-		 * 
-		 * uclient = new UpdateClientView(); uclient.setBackground(new Color(0, 64,
-		 * 128)); uclient.setBounds(12, 12, 870, 561);
-		 * tabbedPane.addTab("Actualizar Cliente", null, uclient,
-		 * "Actualiza datos cliente");
-		 * 
-		 * tabbedPane.setEnabledAt(2, true); this.setVisible(true);
-		 * 
-		 * 
-		 * Delete Client View
-		 * 
-		 * JPanel panel_borrar_cliente = new JPanel();
-		 * panel_borrar_cliente.setToolTipText("Borrar cliente en base de datos");
-		 * panel_borrar_cliente.setBackground(new Color(0, 64, 128));
-		 * tabbedPane.addTab("Borrar Cliente", null, panel_borrar_cliente, null);
-		 */
 	}
 }
