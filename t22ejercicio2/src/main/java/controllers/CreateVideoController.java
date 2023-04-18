@@ -23,13 +23,14 @@ public class CreateVideoController implements ActionListener {
 
 	// Model
 	private Video video;
-	private Cliente cliente = new Cliente();
+	private Cliente cliente;
 	
 	// Vistas
 	private MainView vista;
 	private CreateVideoView cvview;
 	
-	public CreateVideoController(Video video, MainView vista) {
+	public CreateVideoController(Cliente cliente, Video video, MainView vista) {
+		this.cliente = cliente;
 		this.video = video;
 		this.vista = vista;
 		this.cvview = new CreateVideoView();
@@ -77,13 +78,16 @@ public class CreateVideoController implements ActionListener {
 			video.setTitle(cvview.tfCreate1.getText());
 			video.setDirector(cvview.tfCreate2.getText());
 			String dniTextField = cvview.tfCreate3.getText();
+			video.setCliente(cliente);
 			System.out.println(dniTextField);
 			/*
 			ResultSet rs = cliente.readClientIdByDni(dniTextField);
 			int id = rs.getInt("id");
 			*/
+			int id = 0;
 			try {
-				int id = cliente.readClientIdByDni(dniTextField);
+				System.out.println("TRY"+cliente);
+				id = cliente.readClientIdByDni(dniTextField);
 				System.out.println(id);
 			} catch (Exception e2) {
 				// TODO: handle exception
@@ -94,12 +98,10 @@ public class CreateVideoController implements ActionListener {
 			
 			//System.out.println(id);
 			//video.setId(id);
-			//video.insertVideoData();
+			video.insertVideoData(id);
 			//cliente.setDni(dni);
 			//video.setCliente(cliente);
 			
-			//cliente.insertClientData();
-
 		
 	}
 }

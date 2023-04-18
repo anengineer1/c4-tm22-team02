@@ -62,7 +62,7 @@ public class MainController {
 		ccontrol = new CreateClientController(client, mview);
 		ccontrol.initController();
 		// Create view for CreateVideo
-		cvcontrol = new CreateVideoController(video, mview);
+		cvcontrol = new CreateVideoController(client, video, mview);
 		cvcontrol.initController();
 
 
@@ -105,6 +105,16 @@ public class MainController {
 					+ "fecha date DEFAULT NULL,\r\n" + "PRIMARY KEY(id)";
 			// -- Create table clients
 			db.createTable("clientes", "cliente", atributosCliente, conexion);
+			
+			String atributosVideo = "id int(11) NOT NULL AUTO_INCREMENT,\r\n"
+					+ "title varchar(250) DEFAULT NULL,\r\n"
+					+ "director varchar(250) DEFAULT NULL,\r\n"
+					+ "cli_id int(11) DEFAULT NULL,\r\n"
+					+ "PRIMARY KEY (id),\r\n"
+					+ "CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES cliente (id) ON UPDATE CASCADE ON DELETE CASCADE";
+			
+			db.createTable("clientes", "videos", atributosVideo, conexion);
+			
 			// -- Data
 			String cliente1 = ("null,'Ana', 'Lopez', 'Calle Granvia 45', '7777777', '2023-04-03' ");
 			String cliente2 = ("null,'Juan', 'Martinez', 'Calle del Pez 45', '7775555', '2023-04-03' ");
@@ -115,14 +125,7 @@ public class MainController {
 			db.insertData("clientes", "cliente", cliente2, conexion);
 			db.insertData("clientes", "cliente", cliente3, conexion);
 			
-			String atributosVideo = "id int(11) NOT NULL AUTO_INCREMENT,\r\n"
-					+ "title varchar(250) DEFAULT NULL,\r\n"
-					+ "director varchar(250) DEFAULT NULL,\r\n"
-					+ "cli_id int DEFAULT NULL,\r\n"
-					+ "PRIMARY KEY (id),\r\n"
-					+ "CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES cliente (id)";
 			
-			db.createTable("clientes", "videos", atributosVideo, conexion);
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

@@ -165,10 +165,12 @@ public class Database {
 			Statement stdb = conexion.createStatement();
 			stdb.executeUpdate(queryDB);
 
-			String querySelect = "SELECT id FROM " + table + " WHERE dni  = " + dni+";";
+			String querySelect = "SELECT id FROM " + table + " WHERE dni = " + dni+";";
+			System.out.println(querySelect);
 			Statement stsel = conexion.createStatement();
 
 			ResultSet resultSet = stsel.executeQuery(querySelect);
+			
 			
 			while(resultSet.next()) {
 				int id = resultSet.getInt("id");

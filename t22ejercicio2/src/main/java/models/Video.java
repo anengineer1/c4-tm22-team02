@@ -92,14 +92,15 @@ public class Video {
 		this.cliente = cliente;
 	}
 
-	public void insertVideoData() {
+	public void insertVideoData(int id) {
 
+		System.out.println("ID CLIENTE ANTES DE BD"+id);
 		// String with client attributes
-		String newVideo = (null + ",'" + title + "','" + director + "'," + cliente.getId());
+		String newVideo = ("null" + ",'" + title + "','" + director + "'," + id);
 		System.out.println(newVideo);
 
 		// Insert data new client in db
-		db.insertData("clientes", "video", newVideo, conexion);
+		db.insertData("clientes", "videos", newVideo, conexion);
 	}
 
 }
