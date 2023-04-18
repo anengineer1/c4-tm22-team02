@@ -172,6 +172,20 @@ public class Database {
 		}
 	}
 
+	public void deleteDatabaseByDni(String db, String table, String ID, int dni, Connection conexion) {
+		try {
+
+			String query = "DELETE FROM " + table + " WHERE " + ID + " = " + dni;
+			Statement delTable = conexion.createStatement();
+			delTable.executeUpdate(query);
+
+		} catch (SQLException e) {
+			System.out.println("Values not deleted correctly");
+		}
+	}
+	
+	
+	
 	public void dropDatabase(String db, Connection conexion) {
 		try {
 			String queryDB = "DROP DATABASE IF EXISTS " + db;
@@ -183,4 +197,5 @@ public class Database {
 		}
 
 	}
+
 }

@@ -85,7 +85,6 @@ public class ReadClientController implements ActionListener {
 				rs = cliente.readClientDataName(cliente.getNombre());
 				System.out.println();
 			} else if (rcview.tfRead1.getText().isEmpty() && !rcview.tfRead2.getText().isEmpty()) {
-				System.out.println("Hola dni");
 				cliente.setDni(rcview.tfRead2.getText());
 				// get info from db dni
 				rs = cliente.readClientDataDni(cliente.getDni());
