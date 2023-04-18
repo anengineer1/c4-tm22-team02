@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
+
 
 public class Database {
 //-----------------------------------------------------------------
@@ -178,6 +180,8 @@ public class Database {
 			String query = "DELETE FROM " + table + " WHERE " + ID + " = " + dni;
 			Statement delTable = conexion.createStatement();
 			delTable.executeUpdate(query);
+			//TODO: chequear si el usuairo ha introducidoun dni incorrecto.
+			JOptionPane.showMessageDialog(null, "Usuario Eliminado Correctamente", "OK", JOptionPane.INFORMATION_MESSAGE);
 
 		} catch (SQLException e) {
 			System.out.println("Values not deleted correctly");

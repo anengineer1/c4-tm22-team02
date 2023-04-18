@@ -192,7 +192,7 @@ public class Cliente {
 
 	public void deleteClientDataDni(String dni2) throws SQLException  {
 		db.deleteDatabaseByDni("clientes", "cliente", "dni", Integer.parseInt(dni2), conexion);
-		JOptionPane.showMessageDialog(null, "Usuario Eliminado Correctamente", "OK", JOptionPane.INFORMATION_MESSAGE);
+		
 		
 	}
 
