@@ -117,10 +117,13 @@ public class Video {
 		return rs;
 	}
 	
+	public void updateVideoClient(int idAntiguo, int idNuevo) {
+		db.updateVideoClient("clientes", "videos", conexion, idAntiguo, idNuevo, title);
+		System.out.println("MODIFICADO CON EXITO");
+	}
+	
 	public void deleteVideoByTitle(String title) {
-		
 		db.deleteVideoByTitle("clientes", "videos", conexion, title);
-		System.out.println("ELIMINADO CON EXITO");
 	}
 
 }

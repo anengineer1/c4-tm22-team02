@@ -216,6 +216,23 @@ public class Database {
 		//return resultSet;
 		return 0;
 	}
+	
+	public java.sql.ResultSet updateVideoClient(String db, String table, Connection conexion, int idAnt, int idNue,
+			String title) {
+		java.sql.ResultSet resultSet = null;
+		
+		try {
+			String querySelect = "UPDATE " + table + " SET cli_id = "+idNue+" WHERE cli_id = " + idAnt +" AND title = '"+title+"';";
+			System.out.println(querySelect);
+			Statement stsel = conexion.createStatement();
+			
+			stsel.executeUpdate(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
+	}
 
 	public java.sql.ResultSet deleteVideoByTitle(String db, String table, Connection conexion, String title) {
 		java.sql.ResultSet resultSet = null;

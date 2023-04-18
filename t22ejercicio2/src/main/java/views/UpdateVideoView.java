@@ -26,7 +26,7 @@ public class UpdateVideoView extends JPanel {
 	public JTextField tfCreate1;
 	public JTextField tfCreate2;
 	public JTextField tfCreate3;
-	public JButton btnAddVideo;
+	public JButton btnModVideo;
 	public JTable table;
 	
 	public UpdateVideoView() {
@@ -37,7 +37,7 @@ public class UpdateVideoView extends JPanel {
 		this.setBackground(new Color(0, 64, 128));
 		this.setLayout(null);
 		
-		JLabel lblNewLabel_2 = new JLabel("Alta de cliente");
+		JLabel lblNewLabel_2 = new JLabel("Modificacion de video");
 		lblNewLabel_2.setBounds(96, 69, 142, 26);
 		
 		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -67,9 +67,9 @@ public class UpdateVideoView extends JPanel {
 		this.add(tfCreate1);
 		tfCreate1.setColumns(10);
 		
-		JLabel lblCreate2 = new JLabel("Director");
+		JLabel lblCreate2 = new JLabel("DNI Cliente actual");
 		lblCreate2.setBounds(286, 137, 53, 16);
-		lblCreate2.setToolTipText("Director del video");
+		lblCreate2.setToolTipText("DNI actual");
 		lblCreate2.setHorizontalAlignment(SwingConstants.LEFT);
 		lblCreate2.setForeground(Color.WHITE);
 		lblCreate2.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
@@ -77,12 +77,12 @@ public class UpdateVideoView extends JPanel {
 		
 		tfCreate2 = new JTextField();
 		tfCreate2.setBounds(344, 132, 280, 27);
-		tfCreate2.setToolTipText("Introduce director");
+		tfCreate2.setToolTipText("Introduce DNI actual");
 		tfCreate2.setMaximumSize(new Dimension(250, 250));
 		tfCreate2.setColumns(10);
 		this.add(tfCreate2);
 		
-		JLabel lblCreate3 = new JLabel("DNI Cliente");
+		JLabel lblCreate3 = new JLabel("DNI Cliente nuevo");
 		lblCreate3.setBounds(283, 169, 56, 16);
 		lblCreate3.setHorizontalAlignment(SwingConstants.LEFT);
 		lblCreate3.setForeground(Color.WHITE);
@@ -91,17 +91,17 @@ public class UpdateVideoView extends JPanel {
 		
 		tfCreate3 = new JTextField();
 		tfCreate3.setBounds(344, 164, 280, 27);
-		tfCreate3.setToolTipText("Introduce DNI cliente");
+		tfCreate3.setToolTipText("Introduce DNI nuevo");
 		tfCreate3.setMaximumSize(new Dimension(250, 250));
 		tfCreate3.setColumns(10);
 		this.add(tfCreate3);
 		
-		btnAddVideo = new JButton("Modificar video");
-		btnAddVideo.setBounds(344, 421, 280, 55);
-		btnAddVideo.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
-		btnAddVideo.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
-		btnAddVideo.setBackground(new Color(255, 255, 255));
-		this.add(btnAddVideo);
+		btnModVideo = new JButton("Modificar video");
+		btnModVideo.setBounds(344, 421, 280, 55);
+		btnModVideo.setBorder(new LineBorder(new Color(255, 255, 255), 3, true));
+		btnModVideo.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 16));
+		btnModVideo.setBackground(new Color(255, 255, 255));
+		this.add(btnModVideo);
 	}
 	
 	public JPanel getPanel_crear_video() {

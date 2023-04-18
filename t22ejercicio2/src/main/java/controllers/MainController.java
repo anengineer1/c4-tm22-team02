@@ -21,6 +21,7 @@ import views.DeleteVideoView;
 import views.MainView;
 import views.ReadClientView;
 import views.UpdateClientView;
+import views.UpdateVideoView;
 
 /**
  * @author elena-01
@@ -42,6 +43,8 @@ public class MainController {
 	private ReadVideoController rvcontrol;
 	private UpdateClientView ucview;
 	private UpdateClientController ucontrol;
+	private UpdateVideoView uvview;
+	private UpdateVideoController uvcontrol;
 	private DeleteClientView dcview;
 	private DeleteClientController dcontrol;
 	private DeleteVideoView dvview;
@@ -71,6 +74,9 @@ public class MainController {
 		// Create view for ReadVideo
 		rvcontrol = new ReadVideoController(client, video, mview);
 		rvcontrol.initController();
+		// Create view for UpdateVideo
+		uvcontrol = new UpdateVideoController(client, video, mview);
+		uvcontrol.initController();
 		// Create view for DeleteVideo
 		dvcontrol = new DeleteVideoController(video, mview);
 		dvcontrol.initController();
