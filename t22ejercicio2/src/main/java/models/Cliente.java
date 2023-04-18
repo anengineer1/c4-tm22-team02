@@ -35,9 +35,9 @@ public class Cliente {
 		this.db = db;
 		this.conexion = conexion;
 	}
-	
+
 	public Cliente() {
-		
+
 	}
 
 	/**
@@ -127,48 +127,32 @@ public class Cliente {
 	public void insertClientData() {
 
 		// String with client attributes
-		String newClient = (null+","+nombre + "," + apellido + "," + Integer.parseInt(dni) + "," + fecha);
+		String newClient = (null + "," + nombre + "," + apellido + "," + Integer.parseInt(dni) + "," + fecha);
 		System.out.println(newClient);
 
 		// Insert data new client in db
 		db.insertData("clientes", "cliente", newClient, conexion);
 	}
-	
+
 	public ResultSet readClientDataDni(String dni) {
 		ResultSet rs;
 		rs = db.getValuesDni("clientes", "cliente", conexion, Integer.parseInt(dni));
 		System.out.println(rs);
 		return rs;
 	}
-	
+
+	public ResultSet readClientDataName(String string) {
+		ResultSet rs;
+		rs = db.getValuesName("clientes", "cliente", conexion, nombre);
+		System.out.println(rs);
+		return rs;
+	}
+
 	public int readClientIdByDni(String dni) throws SQLException {
 		Database dbtest = new Database();
 		conexion = dbtest.openConnection(conexion);
 		int id = db.getClientIdByDni("clientes", "cliente", conexion, Integer.parseInt(dni));
 		conexion.close();
-		/*Database nuevaCon = new Database();
-		
-		System.out.println(nuevaCon.getClientIdByDni("clientes", "cliente", conexion, Integer.parseInt(dni)));*/
-		
-		/*try {
-			id = rs.getInt("id");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		/*
-		try {
-			while(rs.next()) {
-				id = rs.getInt("id");
-			     System.out.print("ID CLIENTE: "+id);
-			     System.out.println("");
-			  }
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		
-		//System.out.println("DNI SELECTED"+id);
 		return id;
 	}
 

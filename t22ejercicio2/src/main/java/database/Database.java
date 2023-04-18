@@ -113,6 +113,25 @@ public class Database {
 		return resultSet;
 	}
 	
+	//-----------------------------------------------------------------
+		public java.sql.ResultSet getValuesName(String db, String table, Connection conexion, String Name) {
+			java.sql.ResultSet resultSet = null;
+			try {
+				String queryDB = "USE " + db + ";";
+				Statement stdb = conexion.createStatement();
+				stdb.executeUpdate(queryDB);
+
+				String querySelect = "SELECT * FROM " + table + " WHERE nombre  = '" + Name+"';";
+				Statement stsel = conexion.createStatement();
+
+				resultSet = stsel.executeQuery(querySelect);
+
+			} catch (SQLException e) {
+				System.out.println("Values no coleccionadas correctamente:" +e);
+			}
+			return resultSet;
+		}
+	
 	public java.sql.ResultSet getValuesDni(String db, String table, Connection conexion, int dni) {
 		java.sql.ResultSet resultSet = null;
 		
@@ -132,32 +151,43 @@ public class Database {
 		return resultSet;
 	}
 	
-//	public int getClientIdByDni(String db, String table, Connection conexion, int dni) {
-//		
-//		
-//		try {
-//			String queryDB = "USE " + db + ";";
-//			Statement stdb = conexion.createStatement();
-//			stdb.executeUpdate(queryDB);
-//
-//			String querySelect = "SELECT id FROM " + table + " WHERE dni  = '" + dni+"';";
-//			Statement stsel = conexion.createStatement();
-//
-//			ResultSet resultSet = stsel.executeQuery(querySelect);
-//			
-//			/*while(resultSet.next()) {
-//				int id = resultSet.getInt("id");
-//				System.out.println("PRUEBA ID");
-//		         //System.out.println("Name of the Employee: "+id);
-//				return id;
-//		      }*/
-//		} catch (SQLException e) {
-//			System.out.println("Values no coleccionadas correctamente:" +e);
-//		}
-//		return null;
-//		//return 0;
-//	}
+	public java.sql.ResultSet getVideosByTitle(String db, String table, Connection conexion, String title) {
+		java.sql.ResultSet resultSet = null;
+		
+		try {
+			String queryDB = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(queryDB);
+
+			String querySelect = "SELECT * FROM " + table + " WHERE title = '" + title+"';";
+			Statement stsel = conexion.createStatement();
+
+			resultSet = stsel.executeQuery(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
+	}
 	
+	public java.sql.ResultSet getVideosByDirector(String db, String table, Connection conexion, String director) {
+		java.sql.ResultSet resultSet = null;
+		
+		try {
+			String queryDB = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(queryDB);
+
+			String querySelect = "SELECT * FROM " + table + " WHERE director = '" + director +"';";
+			Statement stsel = conexion.createStatement();
+
+			resultSet = stsel.executeQuery(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
+	}
 	
 	public int getClientIdByDni(String db, String table, Connection conexion, int dni) {
 		try {

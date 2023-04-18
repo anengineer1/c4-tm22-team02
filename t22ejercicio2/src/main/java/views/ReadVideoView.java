@@ -17,31 +17,26 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 /**
- * @author elena-01
+ * @author Marc RG
  *
  */
-public class ReadClientView extends JPanel {
+public class ReadVideoView extends JPanel {
 
 	public JTextField tfRead1;
 	public JTextField tfRead2;
 	public JButton btnNewButton;
-	public JTable tableClients;
-
-	/**
-	 * 
-	 */
-	public ReadClientView() {
+	public JTable tableVideos;
 	
-		this.setToolTipText("Consulta de cliente en base de datos");
+	public ReadVideoView() {
+		this.setToolTipText("Consulta de videos en base de datos");
 		this.setBackground(new Color(0, 64, 128));
 		//this.setLayout(null);
 
 		// Label Tab Read Client
-		JLabel lbl_consulta_cliente = new JLabel("Consulta cliente");
+		JLabel lbl_consulta_cliente = new JLabel("Consulta Video");
 		lbl_consulta_cliente.setBounds(175, 60, 431, 128);
 		lbl_consulta_cliente.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-		lbl_consulta_cliente
-				.setIcon(new ImageIcon(MainView.class.getResource("/resources/assets/icons/read-client.png")));
+		lbl_consulta_cliente.setIcon(new ImageIcon(MainView.class.getResource("/resources/assets/icons/read-client.png")));
 		lbl_consulta_cliente.setHorizontalTextPosition(SwingConstants.LEFT);
 		lbl_consulta_cliente.setHorizontalAlignment(SwingConstants.LEFT);
 		lbl_consulta_cliente.setToolTipText("Consulta cliente");
@@ -49,7 +44,7 @@ public class ReadClientView extends JPanel {
 		lbl_consulta_cliente.setForeground(new Color(255, 255, 255));
 		this.add(lbl_consulta_cliente);
 
-		JLabel lblRead1 = new JLabel("Filtra por Nombre");
+		JLabel lblRead1 = new JLabel("Filtra por titulo");
 		lblRead1.setBounds(303, 225, 103, 16);
 		lblRead1.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
 		lblRead1.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -58,7 +53,7 @@ public class ReadClientView extends JPanel {
 
 		tfRead1 = new JTextField();
 		tfRead1.setBounds(411, 223, 195, 20);
-		tfRead1.setToolTipText("Introduce Nombre");
+		tfRead1.setToolTipText("Introduce titulo");
 		tfRead1.setMaximumSize(new Dimension(250, 250));
 		tfRead1.setColumns(10);
 		this.add(tfRead1);
@@ -70,7 +65,7 @@ public class ReadClientView extends JPanel {
 		btnNewButton.setActionCommand("");
 		this.add(btnNewButton);
 
-		JLabel lblRead2 = new JLabel("Filtra por DNI");
+		JLabel lblRead2 = new JLabel("Filtra por director");
 		lblRead2.setBounds(328, 252, 78, 16);
 		lblRead2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblRead2.setForeground(Color.WHITE);
@@ -79,16 +74,16 @@ public class ReadClientView extends JPanel {
 
 		tfRead2 = new JTextField();
 		tfRead2.setBounds(411, 250, 195, 20);
-		tfRead2.setToolTipText("Introduce Nombre");
+		tfRead2.setToolTipText("Introduce director");
 		tfRead2.setMaximumSize(new Dimension(250, 250));
 		tfRead2.setColumns(10);
 		this.add(tfRead2);
 
-		tableClients = new JTable();
-		tableClients.setBounds(47, 307, 796, 247);
-		tableClients.setColumnSelectionAllowed(true);
-		tableClients.setCellSelectionEnabled(true);
-		this.add(tableClients);
-
+		tableVideos = new JTable();
+		tableVideos.setBounds(47, 307, 796, 247);
+		tableVideos.setColumnSelectionAllowed(true);
+		tableVideos.setCellSelectionEnabled(true);
+		this.add(tableVideos);
 	}
+
 }

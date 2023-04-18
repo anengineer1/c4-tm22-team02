@@ -38,6 +38,7 @@ public class MainController {
 	private CreateVideoController cvcontrol;
 	private ReadClientView rcview;
 	private ReadClientController rcontrol;
+	private ReadVideoController rvcontrol;
 	private UpdateClientView ucview;
 	private UpdateClientController ucontrol;
 	private DeleteClientView dcview;
@@ -64,7 +65,10 @@ public class MainController {
 		// Create view for CreateVideo
 		cvcontrol = new CreateVideoController(client, video, mview);
 		cvcontrol.initController();
-
+		// Create view for ReadVideo
+		rvcontrol = new ReadVideoController(client, video, mview);
+		rvcontrol.initController();
+		
 
 		mview.addWindowListener(new WindowAdapter()
 		{
@@ -125,8 +129,6 @@ public class MainController {
 			db.insertData("clientes", "cliente", cliente2, conexion);
 			db.insertData("clientes", "cliente", cliente3, conexion);
 			
-			
-
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}

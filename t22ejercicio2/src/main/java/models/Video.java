@@ -102,5 +102,19 @@ public class Video {
 		// Insert data new client in db
 		db.insertData("clientes", "videos", newVideo, conexion);
 	}
+	
+	public ResultSet readVideoByTitle(String title) {
+		ResultSet rs;
+		rs = db.getVideosByTitle("clientes", "videos", conexion, title);
+		System.out.println(rs);
+		return rs;
+	}
+
+	public ResultSet readVideoByDirector(String director) {
+		ResultSet rs;
+		rs = db.getVideosByDirector("clientes", "videos", conexion, director);
+		System.out.println(rs);
+		return rs;
+	}
 
 }
