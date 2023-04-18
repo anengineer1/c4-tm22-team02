@@ -3,6 +3,7 @@
  */
 package views;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -15,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.ListSelectionModel;
+import javax.swing.JScrollPane;
 
 /**
  * @author elena-01
@@ -26,6 +29,7 @@ public class ReadClientView extends JPanel {
 	public JTextField tfRead2;
 	public JButton btnNewButton;
 	public JTable tableClients;
+	private JScrollPane scrollPane;
 
 	/**
 	 * 
@@ -83,12 +87,24 @@ public class ReadClientView extends JPanel {
 		tfRead2.setMaximumSize(new Dimension(250, 250));
 		tfRead2.setColumns(10);
 		this.add(tfRead2);
+		
+
 
 		tableClients = new JTable();
+		tableClients.setToolTipText("Resultado de busqueda");
+		tableClients.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		tableClients.setBounds(47, 307, 796, 247);
 		tableClients.setColumnSelectionAllowed(true);
 		tableClients.setCellSelectionEnabled(true);
-		this.add(tableClients);
+		
+		//TODO: See why dont runs Header y data
+		this.add(tableClients.getTableHeader(),BorderLayout.NORTH);
+		this.add(tableClients, BorderLayout.BEFORE_FIRST_LINE);
 
+		/* Scroll
+		 * scrollPane = new JScrollPane(); this.add(scrollPane);
+		 * scrollPane.setViewportView(tableClients);
+		 */
+		
 	}
 }

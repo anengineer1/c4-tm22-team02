@@ -40,6 +40,7 @@ public class ReadClientController implements ActionListener {
 		this.cliente = cliente;
 		this.vista = vista;
 		this.rcview = new ReadClientView();
+		rcview.tableClients.setBounds(47, 283, 796, 271);
 		initController();
 		this.rcview.btnNewButton.addActionListener(this);
 	}
@@ -77,7 +78,6 @@ public class ReadClientController implements ActionListener {
 
 		/*-- Button Insert new Client Listener --*/
 		try {
-			System.out.println("Hola");
 			// Check if the filter is by name or DNI
 			if (!rcview.tfRead1.getText().isEmpty() && rcview.tfRead2.getText().isEmpty()) {
 				cliente.setNombre(rcview.tfRead1.getText());
