@@ -27,8 +27,7 @@ public class MainView extends JFrame {
 	 * Constructor Creates the main window structure for client menu
 	 */
 	public MainView() {
-		setAlwaysOnTop(true);
-		setTitle("TEAM02: Ejercicio1 - Clientes");
+		setTitle("TEAM02: Ejercicio2 - Clientes-Videos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 914, 793);
 		contentPane = new JPanel();
@@ -44,7 +43,7 @@ public class MainView extends JFrame {
 		paneltitle.getLayout();
 		paneltitle.setBounds(0, 10, 899, 138);
 
-		JLabel lbl00 = new JLabel("     GESTION DE CLIENTES");
+		JLabel lbl00 = new JLabel("     GESTION DE VIDEOS/CLIENTES");
 		lbl00.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lbl00.setIcon(new ImageIcon(MainView.class.getResource("/resources/assets/icons/client.png")));
 		lbl00.setHorizontalAlignment(SwingConstants.CENTER);
