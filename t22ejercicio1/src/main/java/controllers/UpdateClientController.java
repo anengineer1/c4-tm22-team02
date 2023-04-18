@@ -30,6 +30,7 @@ public class UpdateClientController implements ActionListener {
 	private UpdateClientView ucview;
 	public ResultSet rs1;
 	public ResultSet rs2;
+	public Date date;
 
 	/**
 	 * Constructor
@@ -69,7 +70,6 @@ public class UpdateClientController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Date date  ;
 		// If user selects the button to search client
 		if (e.getSource() == ucview.btnNewButton2) {
 
@@ -83,16 +83,16 @@ public class UpdateClientController implements ActionListener {
 					rs1 = cliente.readClientDataDni(cliente.getDni());
 
 					ResultSetMetaData rsmd = rs1.getMetaData();
-					int columnsNumber = rsmd.getColumnCount();
+					int columnsNumber = rsmd.getColumnCount()+1;
 					while (rs1.next()) {
 
 						// Set data from dni search
 						ucview.tfUpdate1.setText(rs1.getString("nombre"));
 						ucview.tfUpdate2.setText(rs1.getString("apellido"));
 						ucview.tfUpdate3.setText(rs1.getString("direccion"));
-						date = (rs1.getDate("date"));
+						date = (rs1.getDate("fecha"));
 					}
-					
+					System.out.println(date);
 
 					
 				} else {
@@ -110,8 +110,10 @@ public class UpdateClientController implements ActionListener {
 				cliente.setApellido(ucview.tfUpdate2.getText());
 				cliente.setDireccion(ucview.tfUpdate3.getText());
 				cliente.setDni(ucview.tfUpdate4.getText());
-				cliente.insertClientData();
-
+				cliente.setFechaDate(date);
+				//Method of Client model to update
+				cliente.updateClientData();
+				
 			} catch (Exception exception) {
 				exception.printStackTrace();
 			}

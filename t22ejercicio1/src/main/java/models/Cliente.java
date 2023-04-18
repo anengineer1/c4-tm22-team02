@@ -26,6 +26,7 @@ public class Cliente {
 	private String direccion;
 	private String dni;
 	private String fecha;
+	private Date fechaDate;
 	// Database
 	private Connection conexion;
 	private Database db;
@@ -115,6 +116,13 @@ public class Cliente {
 	public String getFecha() {
 		return fecha;
 	}
+	
+	/**
+	 * @return the fecha formato Date
+	 */
+	public Date getFechaDate() {
+		return fechaDate;
+	}
 
 	/**
 	 * @param fecha the fecha to set
@@ -124,6 +132,11 @@ public class Cliente {
 		SimpleDateFormat formatter = new SimpleDateFormat(pattern);
 		String mysqlFecha = formatter.format(fecha);
 		this.fecha = mysqlFecha;
+	}
+
+	public void setFechaDate(Date fechaD) {
+ System.out.println("set"+fechaD);
+		this.fechaDate = fechaD;
 	}
 
 	/*
@@ -162,14 +175,18 @@ public class Cliente {
 
 	/*
 	 * UPDATE: Update client
-	 
-	public void updateClientData(String string) throws SQLException {
+	 *  
+	 */
 
+	public void updateClientData() throws SQLException {
 
-		}*/
-
-/*		db.updateData("clientes", "cliente", string, conexion);
+		String atributosUpdate = (" nombre='"+nombre + "',apellido='" + apellido + "',direccion='" + direccion + "',dni=" + Integer.parseInt(dni) + ",fecha='"
+				+ fechaDate + "'");
+		
+		System.out.println(atributosUpdate);
+		
+		db.updateData("clientes", "cliente", atributosUpdate, Integer.parseInt(dni), conexion);
 		JOptionPane.showMessageDialog(null, "Usuario Actualizado Correctamente", "OK", JOptionPane.INFORMATION_MESSAGE);
-	}*/
+	}
 
 }

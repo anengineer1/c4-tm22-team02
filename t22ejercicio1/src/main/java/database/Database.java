@@ -147,21 +147,17 @@ public class Database {
 		return resultSet;
 	}
 	
-	/*
-	 * //------------------------------UPDATE---------------------------------
-	 * public void updateData(String db, String table, String atributos, Connection
-	 * conexion) { try { // USE database //String queryDB = "USE " + db + ";";
-	 * String queryBD = ("UPDATE " + table + " SET" + atributos + ");"); Statement
-	 * stdb = conexion.prepareStatement(); stdb.executeUpdate(queryDB);
-	 * 
-	 * // CREATE TABLE Statement st = conexion.createStatement();
-	 * 
-	 * st.executeUpdate("UPDATE " + table + " SET" + atributos + ");");
-	 * System.out.println("data insertada: "+ atributos);
-	 * 
-	 * } catch (SQLException e) { // TODO Auto-generated catch block
-	 * System.out.println("Error insertando data: "+e); } }
-	 */
+	
+	  //------------------------------UPDATE---------------------------------
+	  public void updateData(String db, String table, String atributos, int dni, Connection
+	  conexion) { try { // USE database //String queryDB = "USE " + db + ";";
+	  String queryBD = ("UPDATE " + db+"."+table+ " SET" + atributos + " where  dni="+dni+";");
+	  Statement  stdb = conexion.prepareStatement(queryBD);
+	  stdb.executeUpdate(queryBD);
+	  
+	  } catch (SQLException e) { // TODO Auto-generated catch block
+	  System.out.println("Error insertando data: "+e); } }
+	 
 	
 	public void deleteDatabase(String db, String table, String ID,String IDValor, Connection conexion) {
 		try {
