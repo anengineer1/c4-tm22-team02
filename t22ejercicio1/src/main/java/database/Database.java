@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
+
 
 public class Database {
 //-----------------------------------------------------------------
@@ -109,6 +111,56 @@ public class Database {
 		return resultSet;
 	}
 
+	//-----------------------------------------------------------------
+	public java.sql.ResultSet getValuesName(String db, String table, Connection conexion, String Name) {
+		java.sql.ResultSet resultSet = null;
+		try {
+			String queryDB = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(queryDB);
+
+			String querySelect = "SELECT * FROM " + table + " WHERE nombre  = '" + Name+"';";
+			Statement stsel = conexion.createStatement();
+
+			resultSet = stsel.executeQuery(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
+	}
+	
+	//-----------------------------------------------------------------
+	public java.sql.ResultSet getValuesDni(String db, String table, Connection conexion, int dni) {
+		java.sql.ResultSet resultSet = null;
+		try {
+			String queryDB = "USE " + db + ";";
+			Statement stdb = conexion.createStatement();
+			stdb.executeUpdate(queryDB);
+
+			String querySelect = "SELECT * FROM " + table + " WHERE dni=" + dni+";";
+			Statement stsel = conexion.createStatement();
+
+			resultSet = stsel.executeQuery(querySelect);
+
+		} catch (SQLException e) {
+			System.out.println("Values no coleccionadas correctamente:" +e);
+		}
+		return resultSet;
+	}
+	
+	
+	  //------------------------------UPDATE---------------------------------
+	  public void updateData(String db, String table, String atributos, int dni, Connection
+	  conexion) { try { // USE database //String queryDB = "USE " + db + ";";
+	  String queryBD = ("UPDATE " + db+"."+table+ " SET" + atributos + " where  dni="+dni+";");
+	  Statement  stdb = conexion.prepareStatement(queryBD);
+	  stdb.executeUpdate(queryBD);
+	  
+	  } catch (SQLException e) { // TODO Auto-generated catch block
+	  System.out.println("Error insertando data: "+e); } }
+	 
+	
 	public void deleteDatabase(String db, String table, String ID,String IDValor, Connection conexion) {
 		try {
 
@@ -122,6 +174,22 @@ public class Database {
 		}
 	}
 
+	public void deleteDatabaseByDni(String db, String table, String ID, int dni, Connection conexion) {
+		try {
+
+			String query = "DELETE FROM " + table + " WHERE " + ID + " = " + dni;
+			Statement delTable = conexion.createStatement();
+			delTable.executeUpdate(query);
+			//TODO: chequear si el usuairo ha introducidoun dni incorrecto.
+			JOptionPane.showMessageDialog(null, "Usuario Eliminado Correctamente", "OK", JOptionPane.INFORMATION_MESSAGE);
+
+		} catch (SQLException e) {
+			System.out.println("Values not deleted correctly");
+		}
+	}
+	
+	
+	
 	public void dropDatabase(String db, Connection conexion) {
 		try {
 			String queryDB = "DROP DATABASE IF EXISTS " + db;
@@ -133,4 +201,5 @@ public class Database {
 		}
 
 	}
+
 }

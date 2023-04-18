@@ -55,19 +55,27 @@ public class MainController {
 		// Create view for CreateClient
 		ccontrol = new CreateClientController(client, mview);
 		ccontrol.initController();
+		// Create view for ReadClient
+		rcontrol = new ReadClientController(client, mview);
+		rcontrol.initController();
 
-
-		mview.addWindowListener(new WindowAdapter()
-		{
-		    @Override
-		    public void windowClosing(WindowEvent e)
-		    {
-		        super.windowClosing(e);
-		     // Close connection
-				db.closeConnection(conexion);
-		    }
-		});
+		// Create view for UpdateClient
+		ucontrol = new UpdateClientController(client, mview);
+		ucontrol.initController();
 		
+		// Create view for DeleteClient
+		dcontrol = new DeleteClientController(client, mview);
+		dcontrol.initController();
+
+		mview.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				super.windowClosing(e);
+				// Close connection
+				db.closeConnection(conexion);
+			}
+		});
+
 	}
 
 	/*
@@ -92,14 +100,14 @@ public class MainController {
 			// --String that contains table's attibutes
 			String atributosCliente = "id int(11) NOT NULL AUTO_INCREMENT,\r\n"
 					+ "nombre varchar(250) DEFAULT NULL,\r\n" + "apellido varchar(250) DEFAULT NULL,\r\n"
-					+ "direccion varchar(250) DEFAULT NULL,\r\n" + "dni int(11) DEFAULT NULL,\r\n"
+					+ "direccion varchar(250) DEFAULT NULL,\r\n" + "dni int(11) DEFAULT NULL UNIQUE,\r\n"
 					+ "fecha date DEFAULT NULL,\r\n" + "PRIMARY KEY(id)";
 			// -- Create table clients
 			db.createTable("clientes", "cliente", atributosCliente, conexion);
 			// -- Data
 			String cliente1 = ("null,'Ana', 'Lopez', 'Calle Granvia 45', '7777777', '2023-04-03' ");
 			String cliente2 = ("null,'Juan', 'Martinez', 'Calle del Pez 45', '7775555', '2023-04-03' ");
-			String cliente3 = ("null,'Maria', 'Perez', 'Calle del Manzano 45', '3335555', '' ");
+			String cliente3 = ("null,'Maria', 'Perez', 'Calle del Manzano 45', '3335555', '2023-04-16' ");
 
 			// --1.CREATE DATA:insert data in table clients
 			db.insertData("clientes", "cliente", cliente1, conexion);

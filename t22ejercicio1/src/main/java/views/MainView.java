@@ -27,7 +27,7 @@ public class MainView extends JFrame {
 	 * Constructor Creates the main window structure for client menu
 	 */
 	public MainView() {
-		setAlwaysOnTop(true);
+		setResizable(false);
 		setTitle("TEAM02: Ejercicio1 - Clientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 914, 793);
@@ -63,33 +63,5 @@ public class MainView extends JFrame {
 		// Add into Main Panel (contentPane): the panelTitle and tabbedPane
 		contentPane.add(paneltitle);
 		contentPane.add(tabbedPane);
-
-		/*
-		 * Read Client View
-		 */
-		/*
-		 * rclient = new ReadClientView(); rclient.setBackground(new Color(0, 64, 128));
-		 * rclient.setBounds(12, 12, 870, 561); tabbedPane.addTab("Consulta Cliente",
-		 * null, rclient, "Consulta Cliente"); rclient.setLayout(null);
-		 * tabbedPane.setEnabledAt(1, true); this.setVisible(true);
-		 * 
-		 * 
-		 * Update Client View
-		 * 
-		 * uclient = new UpdateClientView(); uclient.setBackground(new Color(0, 64,
-		 * 128)); uclient.setBounds(12, 12, 870, 561);
-		 * tabbedPane.addTab("Actualizar Cliente", null, uclient,
-		 * "Actualiza datos cliente");
-		 * 
-		 * tabbedPane.setEnabledAt(2, true); this.setVisible(true);
-		 * 
-		 * 
-		 * Delete Client View
-		 * 
-		 * JPanel panel_borrar_cliente = new JPanel();
-		 * panel_borrar_cliente.setToolTipText("Borrar cliente en base de datos");
-		 * panel_borrar_cliente.setBackground(new Color(0, 64, 128));
-		 * tabbedPane.addTab("Borrar Cliente", null, panel_borrar_cliente, null);
-		 */
 	}
 }
