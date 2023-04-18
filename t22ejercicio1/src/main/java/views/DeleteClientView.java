@@ -36,11 +36,11 @@ public class DeleteClientView  extends JPanel {
 				setLayout(null);
 		// Label Tab Read Client
 				JLabel lbl_elimina_cliente = new JLabel("Eliminacion cliente");
-				lbl_elimina_cliente.setBounds(69, 11, 319, 128);
+				lbl_elimina_cliente.setHorizontalTextPosition(SwingConstants.RIGHT);
+				lbl_elimina_cliente.setBounds(83, 74, 319, 128);
 				lbl_elimina_cliente.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 				lbl_elimina_cliente
 						.setIcon(new ImageIcon(MainView.class.getResource("/resources/assets/icons/delete.png")));
-				lbl_elimina_cliente.setHorizontalTextPosition(SwingConstants.LEFT);
 				lbl_elimina_cliente.setHorizontalAlignment(SwingConstants.CENTER);
 				lbl_elimina_cliente.setToolTipText("Consulta cliente");
 				lbl_elimina_cliente.setFont(new Font("Franklin Gothic Demi", Font.PLAIN, 22));
@@ -50,14 +50,14 @@ public class DeleteClientView  extends JPanel {
 				
 				
 				JLabel lblRead1 = new JLabel("Filtra por DNI");
-				lblRead1.setBounds(191, 176, 135, 16);
-				lblRead1.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 14));
+				lblRead1.setBounds(312, 197, 135, 16);
+				lblRead1.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 				lblRead1.setHorizontalAlignment(SwingConstants.CENTER);
 				lblRead1.setForeground(new Color(255, 255, 255));
 				this.add(lblRead1);
 
 				tfDelete1 = new JTextField();
-				tfDelete1.setBounds(191, 203, 135, 20);
+				tfDelete1.setBounds(322, 234, 135, 20);
 				tfDelete1.setToolTipText("Introduce Nombre");
 				tfDelete1.setMaximumSize(new Dimension(250, 250));
 				tfDelete1.setColumns(10);
@@ -65,7 +65,7 @@ public class DeleteClientView  extends JPanel {
 				
 				btnNewButton = new JButton("Eliminar cliente ");
 				btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				btnNewButton.setBounds(191, 234, 135, 49);
+				btnNewButton.setBounds(322, 283, 135, 49);
 				btnNewButton.setBorder(null);
 				btnNewButton.setActionCommand("");
 				this.add(btnNewButton);
